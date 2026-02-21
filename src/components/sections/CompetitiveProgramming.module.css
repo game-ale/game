@@ -1,0 +1,150 @@
+.statsRow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-8);
+    padding: var(--space-10);
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-2xl);
+    backdrop-filter: blur(16px);
+    margin-bottom: var(--space-12);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(Auto-fill, minmax(280px, 1fr));
+    gap: var(--space-6);
+    margin-bottom: var(--space-12);
+}
+
+.achieveCard {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform var(--transition-normal);
+}
+
+.achieveCard:hover {
+    transform: translateY(-5px);
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.achieveImage {
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.achieveCard:hover .achieveImage {
+    transform: scale(1.1);
+}
+
+.imageOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent, rgba(10, 15, 28, 0.8));
+}
+
+.achieveContent {
+    padding: var(--space-6);
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.achieveIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-lg);
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-blue);
+    margin-bottom: var(--space-4);
+}
+
+.achieveTitle {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.achieveDesc {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    line-height: 1.6;
+}
+
+.platforms {
+    text-align: center;
+}
+
+.platformsTitle {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+}
+
+.platformGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.platformLink {
+    text-decoration: none;
+}
+
+.platformCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    text-align: center;
+}
+
+.platformName {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    font-weight: 500;
+}
+
+.platformRating {
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    font-family: var(--font-mono);
+}
+
+@media (max-width: 768px) {
+    .statsRow {
+        grid-template-columns: repeat(2, 1fr);
+        padding: var(--space-6);
+        gap: var(--space-6);
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .platformGrid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+    }
+}

@@ -1,0 +1,120 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+}
+
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-normal);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+}
+
+.date {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+.titleLink {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.title {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-3);
+    line-height: 1.4;
+    transition: color var(--transition-fast);
+}
+
+.titleLink:hover .title {
+    color: var(--accent-blue);
+}
+
+.excerpt {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: var(--space-4);
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+}
+
+.footer {
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border-default);
+}
+
+.readMore {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--accent-blue);
+    transition: gap var(--transition-fast);
+}
+
+.card:hover .readMore {
+    gap: var(--space-3);
+}
+
+.viewAll {
+    text-align: center;
+    margin-top: var(--space-10);
+}
+
+.viewAllLink {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--accent-blue);
+    font-weight: 600;
+    font-size: var(--text-base);
+    text-decoration: none;
+    padding: var(--space-3) var(--space-6);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-fast);
+}
+
+.viewAllLink:hover {
+    background: rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 20px var(--accent-blue-glow);
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

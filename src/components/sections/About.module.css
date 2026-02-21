@@ -1,0 +1,130 @@
+.about {
+    background: var(--gradient-section);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: start;
+}
+
+.bio {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.bioText {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: 1.9;
+}
+
+.bioText strong {
+    color: var(--accent-blue);
+    font-weight: 600;
+}
+
+.eduCard {
+    margin-top: var(--space-4);
+}
+
+.eduHeader {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+    margin-bottom: var(--space-4);
+}
+
+.eduIcon {
+    color: var(--accent-emerald);
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.eduTitle {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+}
+
+.eduSchool {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+}
+
+.eduYear {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+.coursework {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+}
+
+.skillsColumn {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.skillCard {
+    background: var(--bg-card) !important;
+}
+
+.skillHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+}
+
+.skillIcon {
+    color: var(--accent-blue);
+}
+
+.skillCategory {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.skillItems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-8);
+    margin-top: var(--space-16);
+    padding: var(--space-10);
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-2xl);
+    backdrop-filter: blur(16px);
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        padding: var(--space-6);
+        gap: var(--space-6);
+    }
+}

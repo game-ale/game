@@ -1,0 +1,129 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: all var(--transition-base);
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+}
+
+.scrolled {
+    background: rgba(10, 15, 28, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-default);
+    box-shadow: var(--shadow-lg);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo {
+    font-family: var(--font-mono);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+}
+
+.logoSymbol {
+    color: var(--accent-blue);
+}
+
+.desktopLinks {
+    display: flex;
+    gap: var(--space-8);
+    list-style: none;
+}
+
+.navLink {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    position: relative;
+    padding: var(--space-2) 0;
+}
+
+.navLink::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-blue);
+    transition: width var(--transition-base);
+}
+
+.navLink:hover {
+    color: var(--accent-blue);
+}
+
+.navLink:hover::after {
+    width: 100%;
+}
+
+.resumeBtn {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--accent-blue);
+    border: 1px solid var(--accent-blue);
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.resumeBtn:hover {
+    background: rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 15px var(--accent-blue-glow);
+}
+
+.mobileToggle {
+    display: none;
+    color: var(--text-primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mobileMenu {
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: rgba(10, 15, 28, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-default);
+    overflow: hidden;
+}
+
+.mobileLinks {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-6);
+    gap: var(--space-4);
+    list-style: none;
+}
+
+@media (max-width: 768px) {
+
+    .desktopLinks,
+    .resumeBtn {
+        display: none;
+    }
+
+    .mobileToggle {
+        display: flex;
+    }
+}

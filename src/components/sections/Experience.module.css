@@ -1,0 +1,132 @@
+.timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.line {
+    position: absolute;
+    left: 28px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            var(--accent-blue) 10%,
+            var(--accent-purple) 50%,
+            var(--accent-emerald) 90%,
+            transparent 100%);
+    opacity: 0.3;
+}
+
+.card {
+    margin-left: var(--space-16);
+    position: relative;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    left: calc(var(--space-16) * -1 + 20px);
+    top: 32px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    border: 3px solid var(--bg-primary);
+    box-shadow: 0 0 15px var(--accent-blue-glow);
+}
+
+.cardHeader {
+    display: flex;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.iconWrap {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-lg);
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-blue);
+    flex-shrink: 0;
+}
+
+.role {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+}
+
+.company {
+    font-size: var(--text-sm);
+    color: var(--accent-blue);
+    font-weight: 500;
+    margin-bottom: var(--space-2);
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.period {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+.description {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    line-height: 1.8;
+    margin-bottom: var(--space-4);
+}
+
+.highlights {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+}
+
+.highlight {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    display: flex;
+    gap: var(--space-2);
+}
+
+.bullet {
+    color: var(--accent-emerald);
+    flex-shrink: 0;
+}
+
+.techStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+@media (max-width: 768px) {
+    .line {
+        left: 12px;
+    }
+
+    .card {
+        margin-left: var(--space-10);
+    }
+
+    .card::before {
+        left: calc(var(--space-10) * -1 + 4px);
+    }
+}

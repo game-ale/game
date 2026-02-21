@@ -1,0 +1,42 @@
+.card {
+    position: relative;
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.borderGradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gradient-card-border);
+    opacity: 0.6;
+}
+
+.none {
+    padding: 0;
+}
+
+.sm {
+    padding: var(--space-4);
+}
+
+.md {
+    padding: var(--space-6);
+}
+
+.lg {
+    padding: var(--space-8);
+}
+
+.hoverable:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl), 0 0 30px var(--accent-blue-glow);
+}
