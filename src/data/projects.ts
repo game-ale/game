@@ -263,13 +263,21 @@ export const projects: Project[] = [
   },
   {
     slug: "hotel-booking-pro",
-    title: "Hotel Booking Pro",
-    subtitle: "Full-Stack Booking Platform",
+    title: "Hotel Booking & Management",
+    subtitle: "Clean Architecture & BLoC MVP",
     description:
-      "A production-grade hotel booking application with real-time availability, secure payment processing, and an intuitive user experience.",
-    heroMetric: { value: "Full", label: "Stack Application" },
-    techStack: ["React", "Node.js", "PostgreSQL", "TypeScript"],
-    github: "https://github.com/game-ale/hotel-booking-pro",
+      "A production-ready, scalable Flutter application built with Uncle Bob’s Clean Architecture. Unified platform connecting travelers, hotel owners, and admins with atomic transactions and real-time mapping.",
+    heroMetric: { value: "MVP", label: "Production Ready" },
+    techStack: [
+      "Flutter",
+      "Firebase",
+      "BLoC",
+      "GoRouter",
+      "GetIt",
+      "Google Maps",
+      "fpdart",
+    ],
+    github: "https://github.com/game-ale/hotel-booking-app",
     thumbnail: "/images/projects/hotel-booking/home.png",
     screenshots: [
       "/images/projects/hotel-booking/home.png",
@@ -281,25 +289,36 @@ export const projects: Project[] = [
       {
         title: "Problem",
         content:
-          "Hotel booking systems require real-time availability management, secure payment processing, and a seamless user experience across devices. Building a reliable, scalable system demands careful architecture.",
+          "Traditional hotel systems often lack a unified interface for multiple stakeholders. Building a platform that scales across travelers, owners, and admins requires a strict separation of concerns to handle complex data flows, real-time availability, and secure wallet-based payments.",
       },
       {
-        title: "Architecture",
+        title: "Clean Architecture & BLoC",
         content:
-          "Designed a full-stack application with a React frontend, Node.js backend, and PostgreSQL database. Implemented real-time availability checking, booking management, and user authentication.",
+          "The project adheres to Uncle Bob’s Clean Architecture, enforcing a strict separation between Presentation, Domain, and Data layers. I used BLoC (Business Logic Component) for predictable state management and GetIt for dependency injection, ensuring the entire codebase is modular, testable, and highly maintainable.",
       },
       {
-        title: "Impact & Results",
+        title: "Advanced Integrations",
         content:
-          "Delivered a fully functional hotel booking platform with real-time features and production-ready architecture.",
+          "Leveraged the Google Maps Platform for location-centric discovery, including Places API for autocomplete. Implemented a custom closed-loop wallet system for secure payments, using Firebase Cloud Functions to ensure that creating a booking and deducting funds happen atomically.",
+      },
+      {
+        title: "Performance & Offline UX",
+        content:
+          "Implemented a robust offline strategy using Firestore's persistence and local caching with shared_preferences. The app features image optimization, pagination for hotel feeds, and atomic NoSQL updates to maintain data integrity even in low-connectivity environments.",
+      },
+      {
+        title: "Stakeholder Ecosystem",
+        content:
+          "Built a multi-role ecosystem with Role-Based Access Control (RBAC). Travelers get interactive discovery; Hotel Owners gain rich property management and revenue analytics; Admins oversee the entire platform via a global 'Super Dashboard' for monitoring platform health and transactions.",
       },
     ],
     metrics: [
-      { value: "Full", label: "Stack App" },
-      { value: "Real-time", label: "Availability" },
-      { value: "Secure", label: "Payments" },
+      { value: "Clean", label: "Architecture" },
+      { value: "BLoC", label: "State Mgmt" },
+      { value: "Atomic", label: "Payments" },
+      { value: "RBAC", label: "Multi-Role" },
     ],
     architectureDescription:
-      "React Frontend → Node.js API → PostgreSQL → Payment Gateway",
+      "Flutter (BLoC) → Domain (Use Cases) → Data Layer (Firebase + Google Maps) → Atomic Cloud Functions",
   },
 ];
