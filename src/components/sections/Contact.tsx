@@ -25,10 +25,17 @@ const socialLinks = [
 
 export default function Contact() {
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+
+        // Open the default mail client
         window.location.href = `mailto:alemugemechu44@gmail.com?subject=Portfolio Contact from ${formData.name}&body=${formData.message}%0A%0AFrom: ${formData.email}`;
+
+        // Provide visual feedback
+        setIsSubmitted(true);
+        setTimeout(() => setIsSubmitted(false), 5000);
     };
 
     return (
@@ -138,9 +145,25 @@ export default function Contact() {
                                         required
                                     />
                                 </div>
-                                <Button variant="primary" size="lg">
-                                    <Send size={18} /> Send Message
+                                <Button
+                                    variant={isSubmitted ? "secondary" : "primary"}
+                                    size="lg"
+                                    type="submit"
+                                    className={isSubmitted ? styles.submittedBtn : ""}
+                                >
+                                    {isSubmitted ? (
+                                        <>Opening Email Client...</>
+                                    ) : (
+                                        <>
+                                            <Send size={18} /> Send Message
+                                        </>
+                                    )}
                                 </Button>
+                                {isSubmitted && (
+                                    <p className={styles.successNote}>
+                                        Note: This will open your default email app to send the message.
+                                    </p>
+                                )}
                             </form>
                         </GlassCard>
                     </AnimatedSection>

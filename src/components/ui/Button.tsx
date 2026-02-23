@@ -10,6 +10,7 @@ interface ButtonProps {
     className?: string;
     target?: string;
     rel?: string;
+    type?: "button" | "submit" | "reset";
 }
 
 export default function Button({
@@ -21,6 +22,7 @@ export default function Button({
     className = "",
     target,
     rel,
+    type = "button",
 }: ButtonProps) {
     const cls = `${styles.btn} ${styles[variant]} ${styles[size]} ${className}`;
 
@@ -33,7 +35,7 @@ export default function Button({
     }
 
     return (
-        <button className={cls} onClick={onClick}>
+        <button type={type} className={cls} onClick={onClick}>
             {children}
         </button>
     );

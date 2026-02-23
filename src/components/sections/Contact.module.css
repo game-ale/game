@@ -154,6 +154,19 @@ a.contactValue:hover {
     min-height: 120px;
 }
 
+.successNote {
+    font-size: var(--text-xs);
+    color: var(--accent-emerald);
+    margin-top: var(--space-3);
+    text-align: center;
+    font-style: italic;
+}
+
+.submittedBtn {
+    opacity: 0.8;
+    cursor: default;
+}
+
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: 1fr;
