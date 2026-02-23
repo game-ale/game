@@ -20,6 +20,7 @@ const socialLinks = [
     { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/gemechu-alemu-bedasa-9a5185338/" },
     { icon: ExternalLink, label: "LeetCode", href: "https://leetcode.com/u/game_ale/" },
     { icon: ExternalLink, label: "Zindi Africa", href: "https://zindi.africa/users/game_ale" },
+    { icon: ExternalLink, label: "Codeforces", href: "https://codeforces.com/profile/gemechualemu" },
 ];
 
 export default function Contact() {

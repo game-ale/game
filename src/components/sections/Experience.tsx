@@ -12,7 +12,7 @@ const experiences = [
         role: "Software Engineering Trainee",
         company: "A2SV (Africa to Silicon Valley)",
         companyUrl: "https://a2sv.org/",
-        period: "2024 — Present",
+        period: "2025 — Present",
         type: "Google-Backed Program",
         description:
             "Intensive training in advanced data structures, algorithms, and system design under production constraints. Solved 450+ complex algorithmic problems with a focus on optimization and scalable solutions.",
