@@ -5,13 +5,14 @@ export interface Project {
   description: string;
   heroMetric: { value: string; label: string };
   techStack: string[];
-  github: string;
+  github?: string;
   live?: string;
   thumbnail?: string;
   screenshots?: string[];
   sections: CaseStudySection[];
   metrics: Metric[];
   architectureDescription: string;
+  directLink?: string;
 }
 
 export interface CaseStudySection {
@@ -39,7 +40,6 @@ export const projects: Project[] = [
       "REST API",
       "React",
     ],
-    github: "https://github.com/game-ale/ethiopia-bank-services",
     live: "https://ethiopia-bank-services.vercel.app/",
     thumbnail: "/images/projects/ethiobank/home.png",
     screenshots: [
@@ -83,6 +83,7 @@ export const projects: Project[] = [
     ],
     architectureDescription:
       "Static Data (JSON/TS) → Next.js API Routes → React UI → Vercel Deployment",
+    directLink: "https://ethiopia-bank-services.vercel.app/",
   },
   {
     slug: "ethiomedIntel",
@@ -278,13 +279,6 @@ export const projects: Project[] = [
       "fpdart",
     ],
     github: "https://github.com/game-ale/hotel-booking-app",
-    thumbnail: "/images/projects/hotel-booking/home.png",
-    screenshots: [
-      "/images/projects/hotel-booking/home.png",
-      "/images/projects/hotel-booking/hotel-detail.png",
-      "/images/projects/hotel-booking/auth.png",
-      "/images/projects/hotel-booking/profile.png",
-    ],
     sections: [
       {
         title: "Problem",

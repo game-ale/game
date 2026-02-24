@@ -3,7 +3,7 @@
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { motion } from "framer-motion";
-import { ArrowDown, ExternalLink, Github, Linkedin } from "lucide-react";
+import { ArrowDown, ExternalLink, FileText, Github, Linkedin } from "lucide-react";
 import NextImage from "next/image";
 import styles from "./Hero.module.css";
 
@@ -97,8 +97,17 @@ export default function Hero() {
                             <Button href="#projects" variant="primary" size="lg">
                                 View Projects
                             </Button>
-                            <Button href="#contact" variant="secondary" size="lg">
-                                Get In Touch
+                            <Button
+                                href="https://drive.google.com/file/d/1H5CeCUmDFihHhs98QS5piNHe7tXOfPIp/view?usp=sharing"
+                                variant="secondary"
+                                size="lg"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <FileText size={18} /> Resume
+                            </Button>
+                            <Button href="#contact" variant="ghost" size="lg">
+                                Contact
                             </Button>
                         </motion.div>
 

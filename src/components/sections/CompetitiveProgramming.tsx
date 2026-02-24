@@ -4,8 +4,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import Counter from "@/components/ui/Counter";
 import GlassCard from "@/components/ui/GlassCard";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { Award, Target, Trophy, Zap } from "lucide-react";
-import NextImage from "next/image";
+import { Award, ExternalLink, Target, Trophy, Zap } from "lucide-react";
 import styles from "./CompetitiveProgramming.module.css";
 
 const platforms = [
@@ -35,21 +34,21 @@ const achievements = [
         title: "ETCPC 2025",
         description: "Top 8 nationally in the Ethiopian Competitive Programming Contest",
         variant: "accent" as const,
-        image: "/images/cp/icpc.png",
+        certificateLink: "https://drive.google.com/file/d/1Fz8cSTiCdfhiQvgDWzgKFZgRvjAZM4hO/view",
     },
     {
         icon: Award,
         title: "CSEC CPD Cup",
         description: "2nd place among 27 competing teams",
         variant: "emerald" as const,
-        image: "/images/cp/astu-csec.png",
+        certificateLink: "https://drive.google.com/file/d/1OwxPmL3eDr-Yc-eqpvGnJUZMpQjyAqmf/view",
     },
     {
         icon: Zap,
         title: "ALX Code League",
-        description: "Participated in the competitive coding league representing ASTU",
+        description: "Ranked 6th place nationally representing ASTU",
         variant: "accent" as const,
-        image: "/images/cp/alx-league.png",
+        certificateLink: "https://drive.google.com/file/d/1urByHExbJlMhCVTAR63jvuxGOziBXM0P/view?usp=sharing",
     },
     {
         icon: Target,
@@ -84,22 +83,23 @@ export default function CompetitiveProgramming() {
                 <div className={styles.grid}>
                     {achievements.map((ach, i) => (
                         <AnimatedSection key={ach.title} delay={i * 0.1}>
-                            <GlassCard padding="none" className={styles.achieveCard}>
-                                {ach.image && (
-                                    <div className={styles.imageWrapper}>
-                                        <NextImage
-                                            src={ach.image}
-                                            alt={ach.title}
-                                            fill
-                                            className={styles.achieveImage}
-                                            sizes="(max-width: 768px) 100vw, 33vw"
-                                        />
-                                        <div className={styles.imageOverlay} />
-                                    </div>
-                                )}
+                            <GlassCard padding="lg" className={styles.achieveCard}>
                                 <div className={styles.achieveContent}>
-                                    <div className={styles.achieveIcon}>
-                                        <ach.icon size={20} />
+                                    <div className={styles.achieveHeader}>
+                                        <div className={styles.achieveIcon}>
+                                            <ach.icon size={20} />
+                                        </div>
+                                        {"certificateLink" in ach && (
+                                            <a
+                                                href={ach.certificateLink as string}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className={styles.certLink}
+                                                aria-label="View Certificate"
+                                            >
+                                                <ExternalLink size={16} />
+                                            </a>
+                                        )}
                                     </div>
                                     <h4 className={styles.achieveTitle}>
                                         {ach.title.includes("A2SV") ? (
@@ -109,6 +109,16 @@ export default function CompetitiveProgramming() {
                                         ) : ach.title}
                                     </h4>
                                     <p className={styles.achieveDesc}>{ach.description}</p>
+                                    {"certificateLink" in ach && (
+                                        <a
+                                            href={ach.certificateLink as string}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={styles.viewCertText}
+                                        >
+                                            View Certificate
+                                        </a>
+                                    )}
                                 </div>
                             </GlassCard>
                         </AnimatedSection>

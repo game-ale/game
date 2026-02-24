@@ -50,7 +50,7 @@ export default function Navbar() {
                 </ul>
 
                 <a
-                    href="/Gemechu_Alemu_Resume.pdf"
+                    href="https://drive.google.com/file/d/1H5CeCUmDFihHhs98QS5piNHe7tXOfPIp/view?usp=sharing"
                     className={styles.resumeBtn}
                     target="_blank"
                     rel="noopener noreferrer"

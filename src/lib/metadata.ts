@@ -15,6 +15,7 @@ const siteConfig = {
         codeforces: "https://codeforces.com/profile/gemechualemu",
         zindi: "https://zindi.africa/users/game_ale",
         email: "alemugemechu44@gmail.com",
+        resume: "https://drive.google.com/file/d/1H5CeCUmDFihHhs98QS5piNHe7tXOfPIp/view?usp=sharing",
     },
 };
 
@@ -49,6 +50,11 @@ export function constructMetadata({
         },
         alternates: { canonical: url },
         robots: { index: true, follow: true },
+        icons: {
+            icon: "/favicon.svg",
+            shortcut: "/favicon.svg",
+            apple: "/favicon.svg",
+        },
     };
 }
 
@@ -77,3 +83,4 @@ export function generatePersonJsonLd() {
 }
 
 export { siteConfig };
+

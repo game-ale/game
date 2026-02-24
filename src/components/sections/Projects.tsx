@@ -26,7 +26,12 @@ export default function Projects() {
                             <GlassCard padding={project.thumbnail ? "none" : "lg"} className={styles.card}>
                                 {/* Thumbnail */}
                                 {project.thumbnail && (
-                                    <Link href={`/projects/${project.slug}`} className={styles.thumbnailLink}>
+                                    <Link
+                                        href={project.directLink || `/projects/${project.slug}`}
+                                        className={styles.thumbnailLink}
+                                        target={project.directLink ? "_blank" : undefined}
+                                        rel={project.directLink ? "noopener noreferrer" : undefined}
+                                    >
                                         <div className={styles.thumbnailWrapper}>
                                             <NextImage
                                                 src={project.thumbnail}
@@ -51,7 +56,12 @@ export default function Projects() {
                                         </span>
                                     </div>
 
-                                    <Link href={`/projects/${project.slug}`} className={styles.titleLink}>
+                                    <Link
+                                        href={project.directLink || `/projects/${project.slug}`}
+                                        className={styles.titleLink}
+                                        target={project.directLink ? "_blank" : undefined}
+                                        rel={project.directLink ? "noopener noreferrer" : undefined}
+                                    >
                                         <h3 className={styles.title}>{project.title}</h3>
                                     </Link>
                                     <p className={styles.subtitle}>{project.subtitle}</p>
@@ -73,19 +83,27 @@ export default function Projects() {
 
                                     {/* Footer */}
                                     <div className={styles.cardFooter}>
-                                        <Link href={`/projects/${project.slug}`} className={styles.readMore}>
-                                            Read Case Study <ArrowRight size={14} />
+                                        <Link
+                                            href={project.directLink || `/projects/${project.slug}`}
+                                            className={styles.readMore}
+                                            target={project.directLink ? "_blank" : undefined}
+                                            rel={project.directLink ? "noopener noreferrer" : undefined}
+                                        >
+                                            {project.directLink ? (project.github ? "View on GitHub" : "View Live Demo") : "Read Case Study"}
+                                            {project.directLink ? <ExternalLink size={14} /> : <ArrowRight size={14} />}
                                         </Link>
                                         <div className={styles.links}>
-                                            <a
-                                                href={project.github}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className={styles.externalLink}
-                                                aria-label="GitHub"
-                                            >
-                                                <Github size={18} />
-                                            </a>
+                                            {project.github && (
+                                                <a
+                                                    href={project.github}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className={styles.externalLink}
+                                                    aria-label="GitHub"
+                                                >
+                                                    <Github size={18} />
+                                                </a>
+                                            )}
                                             {project.live && (
                                                 <a
                                                     href={project.live}
