@@ -4,7 +4,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import Button from "@/components/ui/Button";
 import GlassCard from "@/components/ui/GlassCard";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { ExternalLink, Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
+import { CheckCircle, ExternalLink, Github, Linkedin, Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
 import { useState } from "react";
 import styles from "./Contact.module.css";
 
@@ -25,17 +25,37 @@ const socialLinks = [
 
 export default function Contact() {
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+    const [errorMsg, setErrorMsg] = useState("");
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setStatus("loading");
+        setErrorMsg("");
 
-        // Open the default mail client
-        window.location.href = `mailto:alemugemechu44@gmail.com?subject=Portfolio Contact from ${formData.name}&body=${formData.message}%0A%0AFrom: ${formData.email}`;
+        try {
+            const res = await fetch("https://formspree.io/f/xpwdbjkl", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message,
+                }),
+            });
 
-        // Provide visual feedback
-        setIsSubmitted(true);
-        setTimeout(() => setIsSubmitted(false), 5000);
+            if (res.ok) {
+                setStatus("success");
+                setFormData({ name: "", email: "", message: "" });
+                setTimeout(() => setStatus("idle"), 5000);
+            } else {
+                throw new Error("Failed to send message");
+            }
+        } catch {
+            setStatus("error");
+            setErrorMsg("Failed to send. You can email me directly at alemugemechu44@gmail.com");
+            setTimeout(() => setStatus("idle"), 5000);
+        }
     };
 
     return (
@@ -104,9 +124,9 @@ export default function Contact() {
                         <GlassCard padding="lg">
                             <form onSubmit={handleSubmit} className={styles.form}>
                                 <div className={styles.inputGroup}>
-                                    <label htmlFor="name" className={styles.label}>Name</label>
+                                    <label htmlFor="contact-name" className={styles.label}>Name</label>
                                     <input
-                                        id="name"
+                                        id="contact-name"
                                         type="text"
                                         className={styles.input}
                                         placeholder="Your name"
@@ -115,12 +135,13 @@ export default function Contact() {
                                             setFormData({ ...formData, name: e.target.value })
                                         }
                                         required
+                                        disabled={status === "loading"}
                                     />
                                 </div>
                                 <div className={styles.inputGroup}>
-                                    <label htmlFor="email" className={styles.label}>Email</label>
+                                    <label htmlFor="contact-email" className={styles.label}>Email</label>
                                     <input
-                                        id="email"
+                                        id="contact-email"
                                         type="email"
                                         className={styles.input}
                                         placeholder="your@email.com"
@@ -129,12 +150,13 @@ export default function Contact() {
                                             setFormData({ ...formData, email: e.target.value })
                                         }
                                         required
+                                        disabled={status === "loading"}
                                     />
                                 </div>
                                 <div className={styles.inputGroup}>
-                                    <label htmlFor="message" className={styles.label}>Message</label>
+                                    <label htmlFor="contact-message" className={styles.label}>Message</label>
                                     <textarea
-                                        id="message"
+                                        id="contact-message"
                                         className={styles.textarea}
                                         placeholder="Your message..."
                                         rows={5}
@@ -143,25 +165,33 @@ export default function Contact() {
                                             setFormData({ ...formData, message: e.target.value })
                                         }
                                         required
+                                        disabled={status === "loading"}
                                     />
                                 </div>
                                 <Button
-                                    variant={isSubmitted ? "secondary" : "primary"}
+                                    variant={status === "success" ? "secondary" : "primary"}
                                     size="lg"
                                     type="submit"
-                                    className={isSubmitted ? styles.submittedBtn : ""}
+                                    className={status !== "idle" ? styles.submittedBtn : ""}
                                 >
-                                    {isSubmitted ? (
-                                        <>Opening Email Client...</>
+                                    {status === "loading" ? (
+                                        <><Loader2 size={18} className={styles.spinner} /> Sending...</>
+                                    ) : status === "success" ? (
+                                        <><CheckCircle size={18} /> Message Sent!</>
                                     ) : (
                                         <>
                                             <Send size={18} /> Send Message
                                         </>
                                     )}
                                 </Button>
-                                {isSubmitted && (
+                                {status === "success" && (
                                     <p className={styles.successNote}>
-                                        Note: This will open your default email app to send the message.
+                                        Thanks! I&apos;ll get back to you as soon as possible.
+                                    </p>
+                                )}
+                                {status === "error" && (
+                                    <p className={styles.errorNote}>
+                                        {errorMsg}
                                     </p>
                                 )}
                             </form>

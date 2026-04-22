@@ -46,7 +46,7 @@ export default function Hero() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.3, duration: 0.6 }}
                         >
-                            <span className={styles.greetingDash}>—</span> Hello, I&apos;m
+                            <span className={styles.greetingDash}>&mdash;</span> Hello, I&apos;m
                         </motion.p>
 
                         {/* Name with letter animation */}
@@ -72,7 +72,7 @@ export default function Hero() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1.0, duration: 0.6 }}
                         >
-                            AI Systems Engineer
+                            From Algorithms to AI Infrastructure
                         </motion.h2>
 
                         {/* Description */}
@@ -82,9 +82,10 @@ export default function Hero() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1.2, duration: 0.6 }}
                         >
-                            I design and build scalable intelligence platforms — from data
-                            pipelines and ML inference to production-grade APIs serving
-                            real-time predictions.
+                            From solving 1,000+ algorithmic problems at A2SV to building RAG
+                            systems with zero hallucinations &mdash; I engineer AI platforms where
+                            every data point matters. Currently a CS student at ASTU, competing
+                            in ICPC and Zindi while shipping production-grade ML pipelines.
                         </motion.p>
 
                         {/* CTAs */}

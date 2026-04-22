@@ -88,7 +88,54 @@
   --nav-height: 72px;
 }
 
-/* ─── Reset ─── */
+/* ---- Light Theme ---- */
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-tertiary: #e2e8f0;
+  --bg-glass: rgba(255, 255, 255, 0.8);
+  --bg-glass-light: rgba(241, 245, 249, 0.7);
+  --bg-card: rgba(255, 255, 255, 0.7);
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-tertiary: #64748b;
+  --text-muted: #94a3b8;
+
+  --accent-blue: #2563eb;
+  --accent-blue-hover: #3b82f6;
+  --accent-blue-glow: rgba(37, 99, 235, 0.15);
+  --accent-emerald: #059669;
+  --accent-emerald-glow: rgba(5, 150, 105, 0.15);
+  --accent-purple: #7c3aed;
+  --accent-purple-glow: rgba(124, 58, 237, 0.15);
+  --accent-amber: #d97706;
+
+  --border-default: rgba(148, 163, 184, 0.3);
+  --border-hover: rgba(37, 99, 235, 0.4);
+
+  --gradient-text: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #059669 100%);
+  --gradient-section: linear-gradient(180deg, transparent 0%, rgba(37, 99, 235, 0.03) 50%, transparent 100%);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] body::before {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(37, 99, 235, 0.06), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(124, 58, 237, 0.03), transparent),
+    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(5, 150, 105, 0.03), transparent);
+}
+
+[data-theme="light"] body::after {
+  background-image: linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
+}
+
+/* ---- Reset ---- */
 *,
 *::before,
 *::after {
@@ -110,9 +157,38 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ─── Background Pattern ─── */
+/* ---- Skip to Content (Accessibility) ---- */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent-blue);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  z-index: 9999;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* ---- Focus Visible (Accessibility) ---- */
+*:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ---- Background Pattern ---- */
 body::before {
   content: '';
   position: fixed;
@@ -170,7 +246,7 @@ ul, ol {
   list-style: none;
 }
 
-/* ─── Typography ─── */
+/* ---- Typography ---- */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   font-weight: 700;
@@ -192,7 +268,7 @@ code, pre {
   font-family: var(--font-mono);
 }
 
-/* ─── Container ─── */
+/* ---- Container ---- */
 .container {
   width: 100%;
   max-width: var(--max-width);
@@ -200,7 +276,7 @@ code, pre {
   padding: 0 var(--space-6);
 }
 
-/* ─── Section ─── */
+/* ---- Section ---- */
 .section {
   padding: var(--space-24) 0;
   position: relative;
@@ -210,7 +286,7 @@ code, pre {
   background: var(--gradient-section);
 }
 
-/* ─── Glass Effect ─── */
+/* ---- Glass Effect ---- */
 .glass {
   background: var(--bg-glass);
   backdrop-filter: blur(16px);
@@ -225,7 +301,7 @@ code, pre {
   border: 1px solid var(--border-default);
 }
 
-/* ─── Gradient Text ─── */
+/* ---- Gradient Text ---- */
 .gradient-text {
   background: var(--gradient-text);
   -webkit-background-clip: text;
@@ -233,7 +309,7 @@ code, pre {
   background-clip: text;
 }
 
-/* ─── Animations ─── */
+/* ---- Animations ---- */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -298,7 +374,11 @@ code, pre {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* ─── Responsive ─── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---- Responsive ---- */
 @media (max-width: 1024px) {
   h1 { font-size: var(--text-4xl); }
   h2 { font-size: var(--text-3xl); }

@@ -18,7 +18,7 @@ const socialLinks = [
 
 export default function Footer() {
     return (
-        <footer className={styles.footer}>
+        <footer className={styles.footer} role="contentinfo">
             <div className={`${styles.inner} container`}>
                 <div className={styles.top}>
                     <div className={styles.brand}>

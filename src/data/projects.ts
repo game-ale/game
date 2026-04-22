@@ -27,11 +27,70 @@ export interface Metric {
 
 export const projects: Project[] = [
   {
+    slug: "shopally-ai",
+    title: "ShopAlly AI",
+    subtitle: "AI-Powered Shopping Assistant",
+    description:
+      "A bilingual (Amharic/English) AI shopping assistant for Ethiopian consumers. Integrates OpenAI for smart product recommendations, AliExpress/Alibaba APIs for real-time data, and live ETB currency conversion with image search support.",
+    heroMetric: { value: "AI", label: "Powered Search" },
+    techStack: [
+      "Next.js",
+      "Node.js",
+      "OpenAI API",
+      "Tailwind CSS",
+      "AliExpress API",
+      "Framer Motion",
+    ],
+    live: "https://shop-ally-ai.vercel.app/",
+    thumbnail: "/images/projects/shopally/home.png",
+    screenshots: [
+      "/images/projects/shopally/home.png",
+      "/images/projects/shopally/how-it-works.png",
+      "/images/projects/shopally/users.png",
+    ],
+    sections: [
+      {
+        title: "Problem",
+        content:
+          "Ethiopian consumers shopping on international platforms like AliExpress face three major barriers: language (most platforms are English-only), pricing confusion (no ETB conversion), and information overload (thousands of products with no smart filtering). There was no localized, intelligent shopping tool tailored for the Ethiopian market.",
+      },
+      {
+        title: "Solution & Architecture",
+        content:
+          "Built a full-stack AI shopping assistant using Next.js for the frontend and Node.js for the backend. Integrated OpenAI API for natural language understanding in both Amharic and English, enabling users to type queries in their preferred language. Connected official AliExpress/Alibaba APIs to fetch real-time product data, prices, and reviews.",
+      },
+      {
+        title: "Bilingual AI & Image Search",
+        content:
+          "The AI engine understands both Amharic and English queries, making it accessible to a broader Ethiopian audience. Additionally, users can upload product images to find exact or similar items powered by custom image search integration that matches visual features against the product catalog.",
+      },
+      {
+        title: "ETB-Aware Pricing & Comparison",
+        content:
+          "Engineered a real-time currency conversion system that displays all prices in Ethiopian Birr (ETB) with live foreign exchange updates. The comparison feature enables side-by-side product analysis across different sellers, helping users find the best deals with accurate local pricing.",
+      },
+      {
+        title: "Impact & Results",
+        content:
+          "Deployed on Vercel with a responsive, modern UI featuring glassmorphism design. Serves Ethiopian consumers with bilingual AI recommendations, real-time ETB pricing, image search, and price comparison all in a single unified platform. Received positive user feedback for its Amharic support and intuitive experience.",
+      },
+    ],
+    metrics: [
+      { value: "2", label: "Languages (AM/EN)" },
+      { value: "Live", label: "ETB Pricing" },
+      { value: "AI", label: "Image Search" },
+      { value: "API", label: "Real-time Data" },
+    ],
+    architectureDescription:
+      "User Query (Amharic/English) -> OpenAI NLP -> AliExpress API -> ETB Conversion -> Smart Recommendations -> Next.js UI",
+    directLink: "https://shop-ally-ai.vercel.app/",
+  },
+  {
     slug: "ethiopia-bank-services",
     title: "Ethiopian Bank Services",
     subtitle: "Fintech Services Catalog",
     description:
-      "A comprehensive catalog of 20+ Ethiopian bank services — from USSD codes and mobile banking to payment APIs — organized for easy browsing via a modern UI and REST API.",
+      "A comprehensive catalog of 20+ Ethiopian bank services from USSD codes and mobile banking to payment APIs organized for easy browsing via a modern UI and REST API.",
     heroMetric: { value: "20+", label: "Banks Covered" },
     techStack: [
       "Next.js",
@@ -52,7 +111,7 @@ export const projects: Project[] = [
       {
         title: "Problem",
         content:
-          "Banks in Ethiopia offer many digital services — mobile banking, USSD codes, QR payments, utility bills — but the information is scattered across websites, apps, and brochures. There was no single, structured source for developers, researchers, or end-users to browse and compare bank services.",
+          "Banks in Ethiopia offer many digital services like mobile banking, USSD codes, QR payments, and utility bills but the information is scattered across websites, apps, and brochures. There was no single, structured source for developers, researchers, or end-users to browse and compare bank services.",
       },
       {
         title: "Solution & Architecture",
@@ -62,7 +121,7 @@ export const projects: Project[] = [
       {
         title: "Data Coverage",
         content:
-          "Covers 20+ Ethiopian banks including CBE, Dashen, Awash, Abyssinia, Wegagen, Cooperative Bank of Oromia, Zemen, and Nib International. Services cataloged include airtime & data recharge, airline ticket payments, utility bills (electricity, water), government payments, merchant & QR payments, and transport & fuel payments.",
+          "Covers 20+ Ethiopian banks including CBE, Dashen, Awash, Abyssinia, Wegagen, Cooperative Bank of Oromia, Zemen, and Nib International. Services cataloged include airtime and data recharge, airline ticket payments, utility bills (electricity, water), government payments, merchant and QR payments, and transport and fuel payments.",
       },
       {
         title: "Use Cases",
@@ -82,7 +141,7 @@ export const projects: Project[] = [
       { value: "Live", label: "On Vercel" },
     ],
     architectureDescription:
-      "Static Data (JSON/TS) → Next.js API Routes → React UI → Vercel Deployment",
+      "Static Data (JSON/TS) -> Next.js API Routes -> React UI -> Vercel Deployment",
     directLink: "https://ethiopia-bank-services.vercel.app/",
   },
   {
@@ -120,7 +179,7 @@ export const projects: Project[] = [
       {
         title: "Architecture & Pipeline",
         content:
-          "Built a full ELT pipeline: Telethon scrapes 650+ messages from medical Telegram channels → dbt transforms raw data through staging, intermediate, and mart layers → Dagster orchestrates the entire pipeline with scheduling and monitoring → PostgreSQL star schema stores the dimensional model.",
+          "Built a full ELT pipeline: Telethon scrapes 650+ messages from medical Telegram channels, dbt transforms raw data through staging, intermediate, and mart layers, Dagster orchestrates the entire pipeline with scheduling and monitoring, and PostgreSQL star schema stores the dimensional model.",
       },
       {
         title: "ML & Computer Vision",
@@ -145,7 +204,7 @@ export const projects: Project[] = [
       { value: "5", label: "Pipeline Stages" },
     ],
     architectureDescription:
-      "Telegram → Telethon Scraper → Raw PostgreSQL → dbt (Staging → Intermediate → Marts) → Dagster Orchestration → FastAPI → Next.js Dashboard",
+      "Telegram -> Telethon Scraper -> Raw PostgreSQL -> dbt (Staging -> Intermediate -> Marts) -> Dagster Orchestration -> FastAPI -> Next.js Dashboard",
   },
   {
     slug: "creditrust",
@@ -181,7 +240,7 @@ export const projects: Project[] = [
       {
         title: "RAG Architecture",
         content:
-          "Designed a Retrieval-Augmented Generation system: ChromaDB stores vectorized complaint embeddings → semantic search retrieves the most relevant complaints → FLAN-T5 generates responses strictly grounded in retrieved context → hallucination guardrails validate every response against source documents.",
+          "Designed a Retrieval-Augmented Generation system: ChromaDB stores vectorized complaint embeddings, semantic search retrieves the most relevant complaints, FLAN-T5 generates responses strictly grounded in retrieved context, and hallucination guardrails validate every response against source documents.",
       },
       {
         title: "Hallucination Prevention",
@@ -206,113 +265,6 @@ export const projects: Project[] = [
       { value: "<1s", label: "Query Response" },
     ],
     architectureDescription:
-      "Complaint Data → Embeddings → ChromaDB → Semantic Retrieval → FLAN-T5 Generation → Guardrail Validation → Next.js Dashboard",
-  },
-  {
-    slug: "fraud-detection",
-    title: "Fraud Detection System",
-    subtitle: "E-commerce & Banking Transactions",
-    description:
-      "A machine learning system for detecting fraudulent transactions using advanced feature engineering, imbalanced data handling, and model explainability with SHAP.",
-    heroMetric: { value: "High", label: "AUC-PR Score" },
-    techStack: [
-      "Python",
-      "Scikit-learn",
-      "XGBoost",
-      "SMOTE",
-      "SHAP",
-      "Pandas",
-      "Matplotlib",
-    ],
-    github:
-      "https://github.com/game-ale/Fraud-Detection-System-E-commerce-Banking-Transactions",
-    sections: [
-      {
-        title: "Problem",
-        content:
-          "E-commerce and banking platforms face massive financial losses from fraudulent transactions. The challenge is detecting fraud in highly imbalanced datasets where fraudulent transactions represent less than 1% of all data, making traditional classification approaches ineffective.",
-      },
-      {
-        title: "Feature Engineering",
-        content:
-          "Designed advanced features including geolocation-based anomaly detection (comparing transaction locations with user history), behavioral pattern analysis (spending velocity, time-of-day patterns), and transaction graph features to capture relational fraud patterns.",
-      },
-      {
-        title: "Modeling & Imbalance Handling",
-        content:
-          "Applied SMOTE (Synthetic Minority Over-sampling Technique) to address severe class imbalance. Trained ensemble models with hyperparameter optimization. Evaluated using AUC-PR and F1 metrics specifically chosen for imbalanced classification.",
-      },
-      {
-        title: "Explainability",
-        content:
-          "Integrated SHAP (SHapley Additive exPlanations) for full model explainability. Generated feature importance visualizations, individual prediction explanations, and global model behavior analysis to ensure trust and transparency in fraud decisions.",
-      },
-      {
-        title: "Impact & Results",
-        content:
-          "Achieved high AUC-PR scores on highly imbalanced data. Delivered interpretable fraud predictions with SHAP explanations for every flagged transaction. Built a reproducible ML pipeline with comprehensive evaluation metrics.",
-      },
-    ],
-    metrics: [
-      { value: "High", label: "AUC-PR Score" },
-      { value: "SMOTE", label: "Imbalance Solution" },
-      { value: "SHAP", label: "Explainability" },
-      { value: "3", label: "Feature Categories" },
-    ],
-    architectureDescription:
-      "Raw Transactions → Feature Engineering (Geo + Behavioral) → SMOTE Resampling → Model Training → SHAP Explainability → Prediction API",
-  },
-  {
-    slug: "hotel-booking-pro",
-    title: "Hotel Booking & Management",
-    subtitle: "Clean Architecture & BLoC MVP",
-    description:
-      "A production-ready, scalable Flutter application built with Uncle Bob’s Clean Architecture. Unified platform connecting travelers, hotel owners, and admins with atomic transactions and real-time mapping.",
-    heroMetric: { value: "MVP", label: "Production Ready" },
-    techStack: [
-      "Flutter",
-      "Firebase",
-      "BLoC",
-      "GoRouter",
-      "GetIt",
-      "Google Maps",
-      "fpdart",
-    ],
-    github: "https://github.com/game-ale/hotel-booking-app",
-    sections: [
-      {
-        title: "Problem",
-        content:
-          "Traditional hotel systems often lack a unified interface for multiple stakeholders. Building a platform that scales across travelers, owners, and admins requires a strict separation of concerns to handle complex data flows, real-time availability, and secure wallet-based payments.",
-      },
-      {
-        title: "Clean Architecture & BLoC",
-        content:
-          "The project adheres to Uncle Bob’s Clean Architecture, enforcing a strict separation between Presentation, Domain, and Data layers. I used BLoC (Business Logic Component) for predictable state management and GetIt for dependency injection, ensuring the entire codebase is modular, testable, and highly maintainable.",
-      },
-      {
-        title: "Advanced Integrations",
-        content:
-          "Leveraged the Google Maps Platform for location-centric discovery, including Places API for autocomplete. Implemented a custom closed-loop wallet system for secure payments, using Firebase Cloud Functions to ensure that creating a booking and deducting funds happen atomically.",
-      },
-      {
-        title: "Performance & Offline UX",
-        content:
-          "Implemented a robust offline strategy using Firestore's persistence and local caching with shared_preferences. The app features image optimization, pagination for hotel feeds, and atomic NoSQL updates to maintain data integrity even in low-connectivity environments.",
-      },
-      {
-        title: "Stakeholder Ecosystem",
-        content:
-          "Built a multi-role ecosystem with Role-Based Access Control (RBAC). Travelers get interactive discovery; Hotel Owners gain rich property management and revenue analytics; Admins oversee the entire platform via a global 'Super Dashboard' for monitoring platform health and transactions.",
-      },
-    ],
-    metrics: [
-      { value: "Clean", label: "Architecture" },
-      { value: "BLoC", label: "State Mgmt" },
-      { value: "Atomic", label: "Payments" },
-      { value: "RBAC", label: "Multi-Role" },
-    ],
-    architectureDescription:
-      "Flutter (BLoC) → Domain (Use Cases) → Data Layer (Firebase + Google Maps) → Atomic Cloud Functions",
+      "Complaint Data -> Embeddings -> ChromaDB -> Semantic Retrieval -> FLAN-T5 Generation -> Guardrail Validation -> Next.js Dashboard",
   },
 ];
