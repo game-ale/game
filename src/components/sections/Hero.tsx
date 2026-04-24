@@ -12,17 +12,16 @@ const techBadges = [
     "Docker", "PyTorch", "RAG", "System Design",
 ];
 
-const letterVariants = {
-    hidden: { opacity: 0, y: 50 },
+const wordVariants = {
+    hidden: { opacity: 0, y: 40 },
     visible: (i: number) => ({
         opacity: 1,
         y: 0,
-        transition: { delay: 0.5 + i * 0.03, duration: 0.5, ease: "easeOut" as const },
+        transition: { delay: 0.3 + i * 0.12, duration: 0.5, ease: "easeOut" as const },
     }),
 };
 
 export default function Hero() {
-    const name = "Gemechu Alemu";
 
     return (
         <section className={styles.hero} id="hero">
@@ -39,41 +38,52 @@ export default function Hero() {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
                     >
-                        {/* Greeting */}
-                        <motion.p
-                            className={styles.greeting}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.3, duration: 0.6 }}
-                        >
-                            <span className={styles.greetingDash}>&mdash;</span> Hello, I&apos;m
-                        </motion.p>
-
-                        {/* Name with letter animation */}
-                        <h1 className={styles.name}>
-                            {name.split("").map((letter, i) => (
+                        {/* Sabona-style headline */}
+                        <h1 className={styles.headline}>
+                            {["Hi,", "I'm"].map((word, i) => (
                                 <motion.span
-                                    key={i}
+                                    key={word}
                                     custom={i}
-                                    variants={letterVariants}
+                                    variants={wordVariants}
                                     initial="hidden"
                                     animate="visible"
-                                    className={letter === " " ? styles.space : ""}
+                                    className={styles.headlineWord}
                                 >
-                                    {letter}
+                                    {word}{" "}
                                 </motion.span>
                             ))}
+                            <motion.span
+                                custom={2}
+                                variants={wordVariants}
+                                initial="hidden"
+                                animate="visible"
+                                className={styles.headlineName}
+                            >
+                                Gemechu.
+                            </motion.span>
+                            <br />
+                            {["I", "build", "digital"].map((word, i) => (
+                                <motion.span
+                                    key={word}
+                                    custom={i + 3}
+                                    variants={wordVariants}
+                                    initial="hidden"
+                                    animate="visible"
+                                    className={styles.headlineWord}
+                                >
+                                    {word}{" "}
+                                </motion.span>
+                            ))}
+                            <motion.span
+                                custom={6}
+                                variants={wordVariants}
+                                initial="hidden"
+                                animate="visible"
+                                className={styles.headlineWord}
+                            >
+                                experiences.
+                            </motion.span>
                         </h1>
-
-                        {/* Title */}
-                        <motion.h2
-                            className={styles.title}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 1.0, duration: 0.6 }}
-                        >
-                            From Algorithms to AI Infrastructure
-                        </motion.h2>
 
                         {/* Description */}
                         <motion.p
@@ -82,10 +92,19 @@ export default function Hero() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1.2, duration: 0.6 }}
                         >
-                            From solving 1,000+ algorithmic problems at A2SV to building RAG
-                            systems with zero hallucinations &mdash; I engineer AI platforms where
-                            every data point matters. Currently a CS student at ASTU, competing
-                            in ICPC and Zindi while shipping production-grade ML pipelines.
+                            I design and ship scalable AI systems that turn raw data into reliable
+                            intelligence&mdash;RAG platforms, ML pipelines, inference APIs, and
+                            full-stack AI products built for production. Combining strong algorithmic
+                            thinking with backend engineering and MLOps, I focus on systems that are
+                            fast, explainable, and built to scale. Currently a CSE student at{" "}
+                            <a href="https://www.astu.edu.et/" target="_blank" rel="noopener noreferrer" className={styles.inlineLink}>Adama Science and Technology University (ASTU)</a>,
+                            trained through{" "}
+                            <a href="https://www.a2sv.org/" target="_blank" rel="noopener noreferrer" className={styles.inlineLink}>Africa to Silicon Valley (Backed by Google twice)</a>,
+                            and competing in{" "}
+                            <a href="https://drive.google.com/file/d/1Fz8cSTiCdfhiQvgDWzgKFZgRvjAZM4hO/view" target="_blank" rel="noopener noreferrer" className={styles.inlineLink}>EtCPC–ICPC</a>{" "}
+                            and{" "}
+                            <a href="https://zindi.africa/users/game_ale" target="_blank" rel="noopener noreferrer" className={styles.inlineLink}>Zindi</a>{" "}
+                            while building real-world AI solutions.
                         </motion.p>
 
                         {/* CTAs */}
