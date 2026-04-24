@@ -4,7 +4,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import Badge from "@/components/ui/Badge";
 import GlassCard from "@/components/ui/GlassCard";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { Briefcase } from "lucide-react";
+import { Briefcase, GraduationCap } from "lucide-react";
 import styles from "./Experience.module.css";
 
 const experiences = [
@@ -76,6 +76,14 @@ const experiences = [
     },
 ];
 
+const coursework = [
+    "AI",
+    "Database Systems",
+    "Computer Networks",
+    "Software Engineering",
+    "Computer Architecture",
+];
+
 export default function Experience() {
     return (
         <section className="section" id="experience">
@@ -85,11 +93,20 @@ export default function Experience() {
                     title="Engineering Journey"
                     subtitle="Production-grade training and real-world impact"
                 />
-                <GlassCard padding="sm" className={styles.educationBanner}>
-                    <p className={styles.educationText}>
-                        <strong>B.Sc. Computer Science &amp; Engineering</strong> — Adama Science and
-                        Technology University (2022 — 2027)
-                    </p>
+                <GlassCard padding="md" hover={false} className={styles.educationBanner}>
+                    <div className={styles.educationHeader}>
+                        <GraduationCap size={24} className={styles.educationIcon} />
+                        <div>
+                            <h4 className={styles.educationTitle}>B.Sc. Computer Science &amp; Engineering</h4>
+                            <p className={styles.educationSchool}>Adama Science and Technology University</p>
+                            <p className={styles.educationYear}>2022 — 2027</p>
+                        </div>
+                    </div>
+                    <div className={styles.coursework}>
+                        {coursework.map((course) => (
+                            <Badge key={course} label={course} variant="default" size="sm" />
+                        ))}
+                    </div>
                 </GlassCard>
 
                 <div className={styles.timeline}>

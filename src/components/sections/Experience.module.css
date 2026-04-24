@@ -3,11 +3,41 @@
     max-width: 800px;
 }
 
-.educationText {
+.educationHeader {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.educationIcon {
+    color: var(--accent-blue);
+    flex-shrink: 0;
+}
+
+.educationTitle {
     margin: 0;
+    color: var(--text-primary);
+    font-size: var(--text-lg);
+    font-weight: 600;
+}
+
+.educationSchool {
+    margin: var(--space-1) 0;
     color: var(--text-secondary);
     font-size: var(--text-sm);
-    line-height: 1.7;
+}
+
+.educationYear {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: var(--text-xs);
+    font-family: var(--font-mono);
+}
+
+.coursework {
+    margin-top: var(--space-4);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
 }
 
 .timeline {
