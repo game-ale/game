@@ -2,12 +2,12 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, Moon, Sun, X } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 
 const navLinks = [
-    { label: "About", href: "#about" },
-    { label: "Experience", href: "#experience" },
+    { label: "Engineering Journey", href: "#experience" },
     { label: "Projects", href: "#projects" },
     { label: "Algorithms", href: "#algorithms" },
     { label: "Contact", href: "#contact" },
@@ -16,7 +16,13 @@ const navLinks = [
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [theme, setTheme] = useState<"dark" | "light">("dark");
+    const [theme, setTheme] = useState<"dark" | "light">(() => {
+        if (typeof window === "undefined") {
+            return "dark";
+        }
+
+        return (localStorage.getItem("theme") as "dark" | "light" | null) ?? "dark";
+    });
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 50);
@@ -25,12 +31,8 @@ export default function Navbar() {
     }, []);
 
     useEffect(() => {
-        const saved = localStorage.getItem("theme") as "dark" | "light" | null;
-        if (saved) {
-            setTheme(saved);
-            document.documentElement.setAttribute("data-theme", saved);
-        }
-    }, []);
+        document.documentElement.setAttribute("data-theme", theme);
+    }, [theme]);
 
     const toggleTheme = () => {
         const next = theme === "dark" ? "light" : "dark";
@@ -48,11 +50,11 @@ export default function Navbar() {
             role="banner"
         >
             <nav className={`${styles.nav} container`} role="navigation" aria-label="Main navigation">
-                <a href="/" className={styles.logo} aria-label="Gemechu Alemu - Home">
+                <Link href="/" className={styles.logo} aria-label="Gemechu Alemu - Home">
                     <span className={styles.logoSymbol}>{"<"}</span>
                     GA
                     <span className={styles.logoSymbol}>{"/>"}</span>
-                </a>
+                </Link>
 
                 {/* Desktop */}
                 <ul className={styles.desktopLinks}>

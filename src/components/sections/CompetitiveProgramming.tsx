@@ -1,10 +1,9 @@
 "use client";
 
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import Counter from "@/components/ui/Counter";
 import GlassCard from "@/components/ui/GlassCard";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { Award, ExternalLink, Target, Trophy, Zap } from "lucide-react";
+import { Award, ExternalLink, Trophy, Zap } from "lucide-react";
 import styles from "./CompetitiveProgramming.module.css";
 
 const platforms = [
@@ -50,12 +49,6 @@ const achievements = [
         variant: "accent" as const,
         certificateLink: "https://drive.google.com/file/d/1urByHExbJlMhCVTAR63jvuxGOziBXM0P/view?usp=sharing",
     },
-    {
-        icon: Target,
-        title: "A2SV Trainee",
-        description: "Google-backed advanced DSA & system design program",
-        variant: "purple" as const,
-    },
 ];
 
 
@@ -68,16 +61,6 @@ export default function CompetitiveProgramming() {
                     title="Competitive Programming"
                     subtitle="Solving complex problems under extreme constraints"
                 />
-
-                {/* Stats */}
-                <AnimatedSection>
-                    <div className={styles.statsRow}>
-                        <Counter end={1000} suffix="+" label="Problems Solved" />
-                        <Counter end={1416} suffix="+" label="LeetCode Rating" />
-                        <Counter end={8} prefix="Top " label="ETCPC Ethiopia" />
-                        <Counter end={2} prefix="" suffix="nd" label="CSEC CPD Cup" />
-                    </div>
-                </AnimatedSection>
 
                 {/* Achievements grid */}
                 <div className={styles.grid}>

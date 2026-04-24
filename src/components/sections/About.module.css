@@ -1,130 +1,167 @@
-.about {
-    background: var(--gradient-section);
+.root {
+    padding-top: var(--space-16);
 }
 
-.grid {
+.layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-12);
-    align-items: start;
-}
-
-.bio {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.95fr);
     gap: var(--space-6);
+    align-items: stretch;
+    margin-bottom: var(--space-8);
 }
 
-.bioText {
+.storyCard {
+    height: 100%;
+}
+
+.lead,
+.body,
+.proofText {
     font-size: var(--text-base);
-    color: var(--text-secondary);
     line-height: 1.9;
+    color: var(--text-secondary);
 }
 
-.bioText strong {
+.lead {
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+}
+
+.body {
+    margin-bottom: var(--space-6);
+}
+
+.focusStrip,
+.proofCard {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(16, 185, 129, 0.08));
+    border: 1px solid rgba(59, 130, 246, 0.18);
+    border-radius: var(--radius-xl);
+}
+
+.focusStrip {
+    padding: var(--space-4);
+}
+
+.focusHeader,
+.proofHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     color: var(--accent-blue);
-    font-weight: 600;
+    margin-bottom: var(--space-3);
 }
 
-.eduCard {
-    margin-top: var(--space-4);
+.focusBadges,
+.skillBadges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.metricsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+    height: 100%;
 }
 
 .eduHeader {
     display: flex;
-    gap: var(--space-4);
-    align-items: flex-start;
-    margin-bottom: var(--space-4);
+    align-items: center;
+    gap: var(--space-3);
 }
 
 .eduIcon {
-    color: var(--accent-emerald);
-    margin-top: 2px;
     flex-shrink: 0;
+    color: var(--accent-blue);
 }
 
 .eduTitle {
-    font-size: var(--text-base);
-    font-weight: 600;
+    font-size: var(--text-lg);
     color: var(--text-primary);
     margin-bottom: var(--space-1);
 }
 
-.eduSchool {
-    font-size: var(--text-sm);
-    color: var(--text-tertiary);
+.eduSchool,
+.eduYear {
+    color: var(--text-secondary);
 }
 
 .eduYear {
-    font-size: var(--text-xs);
-    color: var(--text-muted);
-    font-family: var(--font-mono);
+    margin-top: var(--space-1);
 }
 
-.coursework {
+.metricCard {
+    min-height: 168px;
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-    margin-top: var(--space-3);
+    align-items: center;
+    justify-content: center;
 }
 
-.skillsColumn {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
+.skillsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5);
+    margin-bottom: var(--space-6);
 }
 
 .skillCard {
-    background: var(--bg-card) !important;
+    height: 100%;
 }
 
 .skillHeader {
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-4);
 }
 
 .skillIcon {
-    color: var(--accent-blue);
-}
-
-.skillCategory {
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--text-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.skillItems {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-lg);
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-emerald);
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
-.stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-8);
-    margin-top: var(--space-16);
-    padding: var(--space-10);
-    background: var(--bg-card);
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-2xl);
-    backdrop-filter: blur(16px);
+.skillTitle {
+    font-size: var(--text-lg);
+    color: var(--text-primary);
+}
+
+.proofCard {
+    padding: var(--space-5);
 }
 
 @media (max-width: 1024px) {
-    .grid {
+    .root {
+        padding-top: var(--space-12);
+    }
+
+    .layout,
+    .skillsGrid {
         grid-template-columns: 1fr;
     }
 }
 
-@media (max-width: 768px) {
-    .stats {
-        grid-template-columns: repeat(2, 1fr);
-        padding: var(--space-6);
-        gap: var(--space-6);
+@media (max-width: 640px) {
+    .root {
+        padding-top: var(--space-10);
+    }
+
+    .metricsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .metricCard {
+        min-height: 140px;
     }
 }

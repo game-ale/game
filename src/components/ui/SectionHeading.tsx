@@ -16,7 +16,7 @@ export default function SectionHeading({
 }: SectionHeadingProps) {
     return (
         <AnimatedSection className={styles.heading}>
-            <span className={styles.label}>{label}</span>
+            {label && <span className={styles.label}>{label}</span>}
             <h2 className={styles.title}>{title}</h2>
             {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
             <div className={styles.divider} />

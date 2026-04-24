@@ -4,7 +4,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import Button from "@/components/ui/Button";
 import GlassCard from "@/components/ui/GlassCard";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { CheckCircle, ExternalLink, Github, Linkedin, Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
+import { CheckCircle, ExternalLink, Github, Linkedin, Loader2, Mail, MapPin, Phone, Send, X } from "lucide-react";
 import { useState } from "react";
 import styles from "./Contact.module.css";
 
@@ -12,6 +12,8 @@ const contactInfo = [
     { icon: Mail, label: "A2SV Email", value: "gemechu.alemu@a2sv.org", href: "mailto:gemechu.alemu@a2sv.org" },
     { icon: Mail, label: "Gmail", value: "alemugemechu44@gmail.com", href: "mailto:alemugemechu44@gmail.com" },
     { icon: Phone, label: "Phone", value: "+251 949 297 359", href: "tel:+251949297359" },
+    { icon: X, label: "X / Twitter", value: "@alemu_geme88545", href: "https://x.com/alemu_geme88545" },
+    { icon: Linkedin, label: "LinkedIn", value: "gemechu-alemu-bedasa", href: "https://www.linkedin.com/in/gemechu-alemu-bedasa/" },
     { icon: MapPin, label: "Location", value: "Ethiopia", href: undefined },
 ];
 

@@ -8,6 +8,15 @@
     transition: all var(--transition-fast);
 }
 
+.linkBadge {
+    text-decoration: none;
+}
+
+.linkBadge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.18);
+}
+
 .sm {
     font-size: var(--text-xs);
     padding: 0.25rem 0.75rem;
