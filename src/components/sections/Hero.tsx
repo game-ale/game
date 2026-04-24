@@ -22,7 +22,7 @@ const letterVariants = {
 };
 
 export default function Hero() {
-    const name = "Gemechu Alemu";
+    const headline = "I build digital experiences.";
 
     return (
         <section className={styles.hero} id="hero">
@@ -46,12 +46,12 @@ export default function Hero() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.3, duration: 0.6 }}
                         >
-                            <span className={styles.greetingDash}>&mdash;</span> Hello, I&apos;m
+                            Hi, I&apos;m Gemechu.
                         </motion.p>
 
-                        {/* Name with letter animation */}
+                        {/* Headline with letter animation */}
                         <h1 className={styles.name}>
-                            {name.split("").map((letter, i) => (
+                            {headline.split("").map((letter, i) => (
                                 <motion.span
                                     key={i}
                                     custom={i}
@@ -65,16 +65,6 @@ export default function Hero() {
                             ))}
                         </h1>
 
-                        {/* Title */}
-                        <motion.h2
-                            className={styles.title}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 1.0, duration: 0.6 }}
-                        >
-                            From Algorithms to AI Infrastructure
-                        </motion.h2>
-
                         {/* Description */}
                         <motion.p
                             className={styles.description}
@@ -82,10 +72,48 @@ export default function Hero() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1.2, duration: 0.6 }}
                         >
-                            From solving 1,000+ algorithmic problems at A2SV to building RAG
-                            systems with zero hallucinations &mdash; I engineer AI platforms where
-                            every data point matters. Currently a CS student at ASTU, competing
-                            in ICPC and Zindi while shipping production-grade ML pipelines.
+                            I design and ship scalable AI systems that turn raw data into
+                            reliable intelligence&mdash;RAG platforms, ML pipelines, inference
+                            APIs, and full-stack AI products built for production. Combining
+                            strong algorithmic thinking with backend engineering and MLOps, I
+                            focus on systems that are fast, explainable, and built to scale.
+                            Currently a CSE student at{" "}
+                            <a
+                                href="https://www.astu.edu.et/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.inlineLink}
+                            >
+                                Adama Science and Technology University (ASTU)
+                            </a>
+                            , trained through{" "}
+                            <a
+                                href="https://www.a2sv.org/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.inlineLink}
+                            >
+                                Africa to Silicon Valley (Backed by Google twice)
+                            </a>
+                            , and competing in{" "}
+                            <a
+                                href="https://drive.google.com/file/d/1Fz8cSTiCdfhiQvgDWzgKFZgRvjAZM4hO/view"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.inlineLink}
+                            >
+                                EtCPC _ICPC
+                            </a>{" "}
+                            and{" "}
+                            <a
+                                href="https://zindi.africa/users/game_ale"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.inlineLink}
+                            >
+                                Zindi
+                            </a>{" "}
+                            while building real-world AI solutions.
                         </motion.p>
 
                         {/* CTAs */}
