@@ -1,3 +1,15 @@
+.educationBanner {
+    margin: 0 auto var(--space-8);
+    max-width: 800px;
+}
+
+.educationText {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+}
+
 .timeline {
     position: relative;
     display: flex;

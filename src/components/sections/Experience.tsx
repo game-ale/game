@@ -85,6 +85,12 @@ export default function Experience() {
                     title="Engineering Journey"
                     subtitle="Production-grade training and real-world impact"
                 />
+                <GlassCard padding="sm" className={styles.educationBanner}>
+                    <p className={styles.educationText}>
+                        <strong>B.Sc. Computer Science &amp; Engineering</strong> — Adama Science and
+                        Technology University (2022 — 2027)
+                    </p>
+                </GlassCard>
 
                 <div className={styles.timeline}>
                     <div className={styles.line} />

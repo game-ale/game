@@ -5,7 +5,7 @@ import Badge from "@/components/ui/Badge";
 import Counter from "@/components/ui/Counter";
 import GlassCard from "@/components/ui/GlassCard";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { Brain, Code2, Cpu, Database, Globe, GraduationCap } from "lucide-react";
+import { Brain, Code2, Cpu, Database, Globe } from "lucide-react";
 import styles from "./About.module.css";
 
 const skills = [
@@ -52,22 +52,6 @@ export default function About() {
                             guarantees.
                         </p>
 
-                        {/* Education card */}
-                        <GlassCard padding="md" hover={false} className={styles.eduCard}>
-                            <div className={styles.eduHeader}>
-                                <GraduationCap size={24} className={styles.eduIcon} />
-                                <div>
-                                    <h4 className={styles.eduTitle}>B.Sc. Computer Science &amp; Engineering</h4>
-                                    <p className={styles.eduSchool}>Adama Science and Technology University</p>
-                                    <p className={styles.eduYear}>2022 — 2027</p>
-                                </div>
-                            </div>
-                            <div className={styles.coursework}>
-                                {["AI", "Database Systems", "Computer Networks", "Software Engineering", "Computer Architecture"].map((course) => (
-                                    <Badge key={course} label={course} variant="default" size="sm" />
-                                ))}
-                            </div>
-                        </GlassCard>
                     </AnimatedSection>
 
                     {/* Skills grid */}
