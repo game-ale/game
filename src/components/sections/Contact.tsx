@@ -10,7 +10,7 @@ import styles from "./Contact.module.css";
 
 const contactInfo = [
     { icon: Mail, label: "A2SV Email", value: "gemechu.alemu@a2sv.org", href: "mailto:gemechu.alemu@a2sv.org" },
-    { icon: Mail, label: "Gmail", value: "alemugemechu44@gmail.com", href: "mailto:alemugemechu44@gmail.com" },
+    { icon: Mail, label: "Email", value: "alemugemechu44@mail.com", href: "mailto:alemugemechu44@mail.com" },
     { icon: Phone, label: "Phone", value: "+251 949 297 359", href: "tel:+251949297359" },
     { icon: X, label: "X / Twitter", value: "@alemu_geme88545", href: "https://x.com/alemu_geme88545" },
     { icon: Linkedin, label: "LinkedIn", value: "gemechu-alemu-bedasa", href: "https://www.linkedin.com/in/gemechu-alemu-bedasa/" },
@@ -36,13 +36,19 @@ export default function Contact() {
         setErrorMsg("");
 
         try {
-            const res = await fetch("https://formspree.io/f/xpwdbjkl", {
+            const res = await fetch("https://formsubmit.co/ajax/alemugemechu44@mail.com", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
                 body: JSON.stringify({
                     name: formData.name,
                     email: formData.email,
                     message: formData.message,
+                    _subject: `Portfolio Contact from ${formData.name}`,
+                    _template: "table",
+                    _captcha: "false",
                 }),
             });
 
@@ -55,7 +61,7 @@ export default function Contact() {
             }
         } catch {
             setStatus("error");
-            setErrorMsg("Failed to send. You can email me directly at alemugemechu44@gmail.com");
+            setErrorMsg("Failed to send. You can email me directly at alemugemechu44@mail.com");
             setTimeout(() => setStatus("idle"), 5000);
         }
     };
