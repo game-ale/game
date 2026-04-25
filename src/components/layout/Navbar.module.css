@@ -100,19 +100,54 @@
 }
 
 .resumeBtn {
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--accent-blue);
-    border: 1px solid var(--accent-blue);
-    padding: 0.5rem 1.25rem;
-    border-radius: var(--radius-md);
+    position: relative;
+    overflow: hidden;
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    color: white;
+    border: 1px solid rgba(96, 165, 250, 0.45);
+    padding: 0.72rem 1.45rem;
+    border-radius: var(--radius-lg);
     text-decoration: none;
     transition: all var(--transition-fast);
+    background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 52%, #10b981 100%);
+    box-shadow:
+        0 10px 24px rgba(37, 99, 235, 0.28),
+        0 0 24px rgba(139, 92, 246, 0.18);
 }
 
 .resumeBtn:hover {
-    background: rgba(59, 130, 246, 0.1);
-    box-shadow: 0 0 15px var(--accent-blue-glow);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow:
+        0 16px 30px rgba(37, 99, 235, 0.34),
+        0 0 30px rgba(16, 185, 129, 0.18);
+    filter: saturate(1.08);
+}
+
+.resumeBtn::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 38%, rgba(255, 255, 255, 0.08));
+    pointer-events: none;
+}
+
+.resumeBtn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -28%;
+    width: 28%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.55s ease;
+}
+
+.resumeBtn:hover::after {
+    left: 120%;
 }
 
 .mobileToggle {

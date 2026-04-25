@@ -107,7 +107,7 @@ export default function Navbar() {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Resume
+                        Get my Resume
                     </a>
 
                     {/* Mobile Toggle */}
