@@ -14,6 +14,22 @@ const letterVariants = {
     }),
 };
 
+const greetingWords = ["Hi", ",", "I", "am", "Gemechu"];
+
+const greetingVariants = {
+    hidden: { opacity: 0, y: 60, filter: "blur(10px)" },
+    visible: (i: number) => ({
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        transition: {
+            delay: 0.15 + i * 0.16,
+            duration: 0.75,
+            ease: [0.22, 1, 0.36, 1] as const,
+        },
+    }),
+};
+
 export default function Hero() {
     const headline = "I build digital experiences.";
 
@@ -33,17 +49,32 @@ export default function Hero() {
                         transition={{ duration: 0.5 }}
                     >
                         {/* Greeting */}
-                        <motion.p
+                        <motion.h1
                             className={styles.greeting}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.3, duration: 0.6 }}
+                            initial="hidden"
+                            animate="visible"
+                            aria-label="Hi , I am Gemechu"
                         >
-                            Hi, I&apos;m Gemechu.
-                        </motion.p>
+                            {greetingWords.map((word, i) => (
+                                <motion.span
+                                    key={word}
+                                    custom={i}
+                                    variants={greetingVariants}
+                                    className={i === greetingWords.length - 1 ? styles.greetingAccent : styles.greetingWord}
+                                >
+                                    {word}
+                                </motion.span>
+                            ))}
+                            <motion.span
+                                className={styles.greetingGlow}
+                                initial={{ scaleX: 0, opacity: 0 }}
+                                animate={{ scaleX: 1, opacity: 1 }}
+                                transition={{ delay: 0.75, duration: 0.8, ease: "easeOut" }}
+                            />
+                        </motion.h1>
 
-                        {/* Headline with letter animation */}
-                        <h1 className={styles.name}>
+                        {/* Supporting headline with letter animation */}
+                        <h2 className={styles.name}>
                             {headline.split("").map((letter, i) => (
                                 <motion.span
                                     key={i}
@@ -56,7 +87,7 @@ export default function Hero() {
                                     {letter}
                                 </motion.span>
                             ))}
-                        </h1>
+                        </h2>
 
                         {/* Description */}
                         <motion.p

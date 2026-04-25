@@ -7,8 +7,9 @@ import { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 
 const navLinks = [
-    { label: "Engineering Journey", href: "#experience" },
     { label: "Projects", href: "#projects" },
+    { label: "Technical Arsenal", href: "#arsenal" },
+    { label: "Engineering Journey", href: "#experience" },
     { label: "Algorithms", href: "#algorithms" },
     { label: "Contact", href: "#contact" },
 ];

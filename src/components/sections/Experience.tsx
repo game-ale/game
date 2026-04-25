@@ -106,14 +106,6 @@ const experiences: ExperienceEntry[] = [
     },
 ];
 
-const coursework = [
-    "AI",
-    "Database Systems",
-    "Computer Networks",
-    "Software Engineering",
-    "Computer Architecture",
-];
-
 export default function Experience() {
     return (
         <section className={`section ${styles.root}`} id="experience">
@@ -123,22 +115,6 @@ export default function Experience() {
                     title="Engineering Journey"
                     subtitle="Production-grade training and real-world impact"
                 />
-                <GlassCard padding="md" hover={false} className={styles.educationBanner}>
-                    <div className={styles.educationHeader}>
-                        <GraduationCap size={24} className={styles.educationIcon} />
-                        <div>
-                            <h4 className={styles.educationTitle}>B.Sc. Computer Science &amp; Engineering</h4>
-                            <p className={styles.educationSchool}>Adama Science and Technology University</p>
-                            <p className={styles.educationYear}>2022 — 2027</p>
-                        </div>
-                    </div>
-                    <div className={styles.coursework}>
-                        {coursework.map((course) => (
-                            <Badge key={course} label={course} variant="default" size="sm" />
-                        ))}
-                    </div>
-                </GlassCard>
-
                 <div className={styles.columns}>
                     <div className={styles.sectionBlock}>
                         <div className={styles.sectionLabelWrap}>

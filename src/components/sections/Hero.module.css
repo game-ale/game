@@ -64,29 +64,59 @@
 }
 
 .greeting {
-    font-family: var(--font-mono);
-    font-size: var(--text-base);
-    color: var(--accent-blue);
-    margin-bottom: var(--space-4);
+    position: relative;
     display: flex;
-    align-items: center;
-    gap: var(--space-3);
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.18em;
+    margin: 0 0 var(--space-4);
+    font-size: clamp(3.2rem, 7vw, 6.8rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+    color: var(--text-primary);
+    text-wrap: balance;
 }
 
-.greetingDash {
-    color: var(--accent-emerald);
+.greetingWord {
+    display: flex;
+    text-shadow: 0 10px 30px rgba(15, 23, 42, 0.35);
+}
+
+.greetingAccent {
+    display: flex;
+    background: linear-gradient(90deg, var(--accent-blue) 0%, #8b5cf6 55%, var(--accent-emerald) 100%);
+    background-size: 180% 180%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 6s ease-in-out infinite;
+    text-shadow: 0 0 25px rgba(59, 130, 246, 0.2);
+}
+
+.greetingGlow {
+    position: absolute;
+    left: 0;
+    bottom: -12px;
+    width: min(320px, 60%);
+    height: 6px;
+    border-radius: 999px;
+    transform-origin: left center;
+    background: linear-gradient(90deg, var(--accent-blue), #8b5cf6, var(--accent-emerald));
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.35);
 }
 
 .name {
-    font-size: var(--text-7xl);
-    font-weight: 900;
-    letter-spacing: -0.04em;
-    line-height: 1.1;
-    margin-bottom: var(--space-4);
+    font-size: clamp(1.35rem, 1.2rem + 1.5vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+    margin-bottom: var(--space-5);
     background: var(--gradient-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    max-width: 14ch;
 }
 
 .space {
@@ -232,6 +262,17 @@
     transform: translateY(-3px);
 }
 
+@keyframes gradientShift {
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
 @media (max-width: 768px) {
     .heroGrid {
         grid-template-columns: 1fr;
@@ -261,7 +302,8 @@
     }
 
     .name {
-        font-size: var(--text-4xl);
+        max-width: none;
+        font-size: clamp(1.15rem, 5vw, 1.75rem);
     }
 
     .title {
@@ -289,5 +331,16 @@
 
     .orb3 {
         display: none;
+    }
+
+    .greeting {
+        justify-content: center;
+        font-size: clamp(2.7rem, 12vw, 4.5rem);
+    }
+
+    .greetingGlow {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 180px;
     }
 }
