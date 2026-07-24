@@ -72,7 +72,7 @@ export default function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.45, duration: 0.5 }}
                 >
-                    <ProfileViewCount username="gemechualemu-portfolio" />
+                    <ProfileViewCount />
                 </motion.div>
 
                 {/* Main Heading */}

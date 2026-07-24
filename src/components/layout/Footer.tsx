@@ -57,7 +57,7 @@ export default function Footer() {
                     <p>
                         &copy; {new Date().getFullYear()} {t.footer.copyright}
                     </p>
-                    <ProfileViewCount username="gemechualemu-portfolio" />
+                    <ProfileViewCount />
                     <p className={styles.tech}>
                         {t.footer.techLine}
                     </p>
