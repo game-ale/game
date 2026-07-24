@@ -7,6 +7,8 @@ import NextImage from "next/image";
 import styles from "./Hero.module.css";
 import { useTranslation } from "@/i18n/LanguageContext";
 
+import ProfileViewCount from "@/components/ui/ProfileViewCount";
+
 export default function Hero() {
     const { t } = useTranslation();
 
@@ -62,6 +64,15 @@ export default function Hero() {
                     <a href="https://wa.me/251949297359" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className={styles.socialIcon}>
                         <WhatsAppIcon size={16} />
                     </a>
+                </motion.div>
+
+                {/* Live Profile View Counter */}
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.45, duration: 0.5 }}
+                >
+                    <ProfileViewCount username="game-ale" />
                 </motion.div>
 
                 {/* Main Heading */}

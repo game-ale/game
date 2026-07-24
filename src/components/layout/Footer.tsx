@@ -4,6 +4,8 @@ import { ExternalLink, Github, Linkedin, Mail } from "lucide-react";
 import styles from "./Footer.module.css";
 import { useTranslation } from "@/i18n/LanguageContext";
 
+import ProfileViewCount from "@/components/ui/ProfileViewCount";
+
 const socialLinks = [
     { icon: Github, href: "https://github.com/game-ale/", label: "GitHub" },
     {
@@ -55,6 +57,7 @@ export default function Footer() {
                     <p>
                         &copy; {new Date().getFullYear()} {t.footer.copyright}
                     </p>
+                    <ProfileViewCount username="game-ale" />
                     <p className={styles.tech}>
                         {t.footer.techLine}
                     </p>

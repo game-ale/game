@@ -1,0 +1,78 @@
+.viewCountBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    background: rgba(139, 92, 246, 0.08);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    margin-top: 4px;
+    margin-bottom: 12px;
+}
+
+.viewCountBadge:hover {
+    background: rgba(139, 92, 246, 0.15);
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.25);
+    transform: translateY(-1px);
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: #a855f7;
+}
+
+.eyeIcon {
+    animation: eyePulse 3s ease-in-out infinite;
+}
+
+.liveDot {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #22c55e;
+    box-shadow: 0 0 8px #22c55e;
+    animation: blink 1.5s ease-in-out infinite;
+}
+
+.labelText {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--text-secondary, #cbd5e1);
+    text-transform: uppercase;
+}
+
+.badgeImg {
+    height: 20px;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@keyframes eyePulse {
+    0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
