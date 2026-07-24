@@ -56,7 +56,7 @@ export default function Hero() {
                     <a href="https://x.com/alemu_geme88545" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className={styles.socialIcon}>
                         <XIcon size={16} />
                     </a>
-                    <a href="https://www.linkedin.com/in/gemechu-alemu-bedasa-9a5185338" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className={styles.socialIcon}>
+                    <a href="https://www.linkedin.com/in/gemechu-alemu-bedasa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className={styles.socialIcon}>
                         <Linkedin size={18} />
                     </a>
                     <a href="https://t.me/AletheiaNike" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className={styles.socialIcon}>
