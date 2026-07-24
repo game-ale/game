@@ -8,7 +8,7 @@ interface ProfileViewCountProps {
     username?: string;
 }
 
-export default function ProfileViewCount({ username = "game-ale", className = "" }: ProfileViewCountProps) {
+export default function ProfileViewCount({ username = "gemechualemu-portfolio", className = "" }: ProfileViewCountProps) {
     return (
         <div className={`${styles.viewCountBadge} ${className}`} title="Live Profile Views">
             <span className={styles.iconWrapper}>
