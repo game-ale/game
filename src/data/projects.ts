@@ -209,22 +209,25 @@ export const projects: Project[] = [
   {
     slug: "creditrust",
     title: "CrediTrust",
-    subtitle: "RAG Analytics Platform",
+    subtitle: "Enterprise RAG Complaint Platform",
     description:
-      "A Retrieval-Augmented Generation platform that analyzes 15,000+ consumer complaints with strict hallucination guardrails, delivering 100% grounded responses through FLAN-T5 and ChromaDB.",
-    heroMetric: { value: "15K+", label: "Complaints Analyzed" },
+      "An enterprise-grade Retrieval-Augmented Generation (RAG) platform engineered to process and analyze 500,000+ Consumer Financial Protection Bureau (CFPB) complaints with live WebSocket streaming, FAISS vector search, and strict hallucination guardrails.",
+    heroMetric: { value: "500K+", label: "Complaints Analyzed" },
     techStack: [
       "Python",
-      "FLAN-T5",
-      "ChromaDB",
-      "Next.js",
-      "Recharts",
-      "Framer Motion",
       "FastAPI",
+      "Next.js",
+      "Flan-T5",
+      "FAISS",
+      "HuggingFace",
+      "PostgreSQL",
+      "Docker",
+      "Tailwind CSS",
     ],
     github: "https://github.com/game-ale/rag-complaint-chatbot",
-    thumbnail: "/images/projects/creditrust/dashboard.png",
+    thumbnail: "/images/projects/creditrust/thumbnail.png",
     screenshots: [
+      "/images/projects/creditrust/thumbnail.png",
       "/images/projects/creditrust/dashboard.png",
       "/images/projects/creditrust/ai-response.png",
       "/images/projects/creditrust/history.png",
@@ -235,37 +238,37 @@ export const projects: Project[] = [
       {
         title: "Problem",
         content:
-          "Financial institutions receive thousands of consumer complaints but lack intelligent tools to analyze patterns, generate insights, and respond with verified, grounded information. Traditional chatbots hallucinate and provide unreliable answers.",
+          "Financial institutions receive hundreds of thousands of consumer complaints but lack intelligent tools to analyze patterns, extract actionable insights, and generate compliance answers. Processing 500,000+ CFPB records demands high performance, zero AI hallucinations, and robust security.",
       },
       {
-        title: "RAG Architecture",
+        title: "Solution & Microservices Architecture",
         content:
-          "Designed a Retrieval-Augmented Generation system: ChromaDB stores vectorized complaint embeddings, semantic search retrieves the most relevant complaints, FLAN-T5 generates responses strictly grounded in retrieved context, and hallucination guardrails validate every response against source documents.",
+          "Built a dockerized microservices architecture with Next.js frontend, FastAPI backend, NGINX reverse proxy, PostgreSQL database, and local Flan-T5 LLM integration. Semantic search is powered by FAISS vector index and HuggingFace embeddings.",
       },
       {
-        title: "Hallucination Prevention",
+        title: "Streaming RAG Pipeline & Guardrails",
         content:
-          "Implemented strict guardrail mechanisms that cross-reference every generated response against source documents. Achieved 100% grounded responses by rejecting any output that cannot be traced back to the original complaint data.",
+          "Engineered live WebSocket response streaming powered by Flan-T5. Strict hallucination guardrails validate generated responses against retrieved complaint narratives to guarantee 100% grounded answers.",
       },
       {
-        title: "Frontend & Visualization",
+        title: "Analytics Engine & JWT Security",
         content:
-          "Built a glassmorphism Next.js UI with Recharts for complaint analytics dashboards and Framer Motion for fluid interactions. The interface provides real-time querying, trend visualization, and interactive complaint exploration.",
+          "Developed a dynamic StatsEngine that parses 500,000+ CFPB complaint records to deliver real-time KPIs, issue distributions, and month-over-month trends, secured via stateless JWT authentication.",
       },
       {
-        title: "Impact & Results",
+        title: "Impact & Evaluation Results",
         content:
-          "Analyzed 15,000+ consumer complaints with zero hallucinated responses. Delivered a production-grade RAG system with sub-second query times and complete response traceability.",
+          "Evaluated against 10 multi-category financial complaint queries, achieving a 4.8/5.0 score across accuracy, grounding, and completeness matrices with zero hallucinations.",
       },
     ],
     metrics: [
-      { value: "15K+", label: "Complaints Analyzed" },
+      { value: "500K+", label: "Complaints Analyzed" },
       { value: "100%", label: "Grounded Responses" },
-      { value: "0", label: "Hallucinations" },
+      { value: "4.8/5", label: "RAG Evaluation Score" },
       { value: "<1s", label: "Query Response" },
     ],
     architectureDescription:
-      "Complaint Data -> Embeddings -> ChromaDB -> Semantic Retrieval -> FLAN-T5 Generation -> Guardrail Validation -> Next.js Dashboard",
+      "500K+ CFPB Complaints -> HuggingFace Embeddings -> FAISS Vector Store -> Semantic Retrieval -> Flan-T5 LLM -> WebSocket Streaming -> Next.js Glassmorphic UI",
   },
   {
     slug: "breast-cancer-prediction-engine",
