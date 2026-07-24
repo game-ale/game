@@ -332,4 +332,67 @@ export const projects: Project[] = [
     architectureDescription:
       "Clinical FNA Features (30 metrics) -> StandardScaler -> Dimensionality Reduction (PCA) -> 5 Classifier Models -> Confusion Matrix & ROC Evaluation -> Streamlit App Inference",
   },
+  {
+    slug: "smart-farmer",
+    title: "Smart GPS Fields Area Measure",
+    subtitle: "Offline-First Mobile Land Measurement App",
+    description:
+      "An offline-first Flutter mobile application designed for Ethiopian smallholder farmers to measure farmland boundaries accurately using real-time GPS tracking and manual tap modes, featuring custom tile caching, local unit conversions (Mide), and Amharic/Afaan Oromoo localization.",
+    heroMetric: { value: "100%", label: "Offline First" },
+    techStack: [
+      "Flutter",
+      "Dart",
+      "flutter_bloc",
+      "Hive",
+      "Geolocator",
+      "flutter_map",
+      "Clean Architecture",
+    ],
+    github: "https://github.com/game-ale/smart_Farmer",
+    thumbnail: "/images/projects/smart-farmer/GPS_Mode_measurent_page.png",
+    screenshots: [
+      "/images/projects/smart-farmer/GPS_Mode_measurent_page.png",
+      "/images/projects/smart-farmer/measurement_mode_page.png",
+      "/images/projects/smart-farmer/measred_history_field.png",
+      "/images/projects/smart-farmer/Finding_map_and_download.png",
+      "/images/projects/smart-farmer/meastured_feild_history_indvidual_deatial.png",
+      "/images/projects/smart-farmer/localitation_setting_page.png",
+    ],
+    sections: [
+      {
+        title: "Problem",
+        content:
+          "Most Ethiopian smallholder farmers do not have access to professional land surveying tools, and many rural agricultural areas lack internet connectivity. Measuring farmland accurately is crucial for seed distribution, fertilizer planning, estimating crop yields, and land management.",
+      },
+      {
+        title: "Architecture & Tech Stack",
+        content:
+          "Engineered using Flutter & Dart following Clean Architecture and Domain-Driven Design (DDD) principles. Features BLoC state management, Hive local database storage with soft-delete capabilities, GoRouter with persistent bottom navigation, and GetIt dependency injection.",
+      },
+      {
+        title: "Dual Measurement Modes & Smart GPS Safeguards",
+        content:
+          "Supports physical walking perimeter tracking with real-time GPS boundary drop points, as well as manual tap mode on map views. Includes an intelligent GPS accuracy monitor that auto-pauses measurement if signal error exceeds 5 meters to prevent faulty data collection.",
+      },
+      {
+        title: "Custom Offline Caching & Spherical Math",
+        content:
+          "Integrates flutter_map with a custom LRU tile cache engine, allowing field measurement and map rendering in zero-connectivity rural environments. Uses maps_toolkit spherical geometry algorithms to compute precise field perimeters and surface areas.",
+      },
+      {
+        title: "Ethiopian Localization & Local Units",
+        content:
+          "Fully localized in Amharic (አማርኛ) and Afaan Oromoo alongside English. Supports standard metric units (ha, m²) alongside traditional Ethiopian land measurement units such as Mide (ሚዴ). Developed as an academic project at Adama Science and Technology University (ASTU).",
+      },
+    ],
+    metrics: [
+      { value: "100%", label: "Offline Capability" },
+      { value: "3", label: "Languages (EN/AM/OM)" },
+      { value: "2", label: "Measurement Modes" },
+      { value: "<5m", label: "GPS Error Threshold" },
+    ],
+    architectureDescription:
+      "GPS Sensor / Touch Inputs -> Geolocator / Maps Toolkit -> BLoC State Management -> Hive Local Storage -> Flutter UI (Amharic / Afaan Oromoo / English)",
+  },
 ];
+
