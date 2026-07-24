@@ -267,4 +267,66 @@ export const projects: Project[] = [
     architectureDescription:
       "Complaint Data -> Embeddings -> ChromaDB -> Semantic Retrieval -> FLAN-T5 Generation -> Guardrail Validation -> Next.js Dashboard",
   },
+  {
+    slug: "breast-cancer-prediction-engine",
+    title: "Breast Cancer Prediction Engine",
+    subtitle: "ML Diagnostic Classification System",
+    description:
+      "An end-to-end machine learning diagnostic pipeline and Streamlit web application that classifies breast tumors as benign or malignant with 98.25% accuracy using 5 ML algorithms.",
+    heroMetric: { value: "98.25%", label: "Accuracy" },
+    techStack: [
+      "Python",
+      "Scikit-Learn",
+      "Streamlit",
+      "Pandas",
+      "PCA",
+      "Seaborn",
+      "Jupyter",
+    ],
+    github: "https://github.com/game-ale/Breast_Cancer_Prediction_Engine",
+    thumbnail: "/images/projects/breast-cancer/banner.png",
+    screenshots: [
+      "/images/projects/breast-cancer/banner.png",
+      "/images/projects/breast-cancer/model_comparison.png",
+      "/images/projects/breast-cancer/roc_curves.png",
+      "/images/projects/breast-cancer/confusion_matrices.png",
+      "/images/projects/breast-cancer/pca_2d.png",
+      "/images/projects/breast-cancer/feature_importance.png",
+    ],
+    sections: [
+      {
+        title: "Problem",
+        content:
+          "Breast cancer is one of the leading causes of cancer mortality worldwide. Traditional diagnostic methods depend on visual cell inspection, which can carry subjective error rates up to 20%. Medical professionals require robust computer-aided diagnostic (CAD) systems to boost diagnostic precision and minimize missed malignant cases.",
+      },
+      {
+        title: "Dataset & Preprocessing",
+        content:
+          "Utilized the UCI Breast Cancer Wisconsin (Diagnostic) Dataset containing 569 samples with 30 nuclear feature characteristics (radius, texture, concavity, fractal dimension). Preprocessed data using StandardScaler normalization and stratified 80/20 train/test splitting to preserve class balance.",
+      },
+      {
+        title: "Dimensionality Reduction & Feature Selection",
+        content:
+          "Engineered 2D PCA (Principal Component Analysis) projections to map 30 dimensions down to 2 principal components while preserving maximum variance. Performed feature importance analysis using Random Forest tree ensembles to isolate key diagnostic markers such as worst concave points, worst perimeter, and worst radius.",
+      },
+      {
+        title: "Multi-Model Evaluation & Cross-Validation",
+        content:
+          "Trained and benchmarked 5 machine learning models: Logistic Regression, Support Vector Machine (SVM), Random Forest, K-Nearest Neighbors (KNN), and Gradient Boosting. Evaluated models across Accuracy, Precision, Recall, F1-Score, ROC-AUC curves, Precision-Recall curves, and 5-fold Stratified Cross-Validation.",
+      },
+      {
+        title: "Streamlit App & Diagnostic Impact",
+        content:
+          "Achieved top-tier performance with 98.25% test accuracy and 0.9954 AUC (Logistic Regression & SVM) with only 1 false positive and 1 false negative. Built an interactive Streamlit inference app allowing clinicians to adjust patient tumor measurements in real time and receive instant diagnostic probability scores.",
+      },
+    ],
+    metrics: [
+      { value: "98.25%", label: "Diagnostic Accuracy" },
+      { value: "0.9954", label: "ROC-AUC Score" },
+      { value: "5", label: "Models Benchmarked" },
+      { value: "569", label: "Clinical Samples" },
+    ],
+    architectureDescription:
+      "Clinical FNA Features (30 metrics) -> StandardScaler -> Dimensionality Reduction (PCA) -> 5 Classifier Models -> Confusion Matrix & ROC Evaluation -> Streamlit App Inference",
+  },
 ];
