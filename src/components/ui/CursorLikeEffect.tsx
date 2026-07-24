@@ -16,7 +16,7 @@ export default function CursorLikeEffect() {
     const dotRef = useRef<HTMLDivElement>(null);
     const circleRef = useRef<HTMLDivElement>(null);
     
-    const requestRef = useRef<number>();
+    const requestRef = useRef<number | null>(null);
 
     useEffect(() => {
         // Check if device is mobile or touch

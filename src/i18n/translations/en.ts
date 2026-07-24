@@ -22,6 +22,7 @@ export const en: Translations = {
     twitter: "Twitter",
     linkedin: "LinkedIn",
     contactBtn: "Contact",
+    availableBadge: "Available for projects",
   },
   projects: {
     label: "Projects",

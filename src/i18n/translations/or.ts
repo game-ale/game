@@ -22,6 +22,7 @@ export const or: Translations = {
     twitter: "Twitter",
     linkedin: "LinkedIn",
     contactBtn: "Quunnamtii",
+    availableBadge: "Pirojektiidhaaf qophaa'aa",
   },
   projects: {
     label: "Pirojektoota",

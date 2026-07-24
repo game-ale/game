@@ -22,6 +22,7 @@ export const am: Translations = {
     twitter: "Twitter",
     linkedin: "LinkedIn",
     contactBtn: "አግኙኝ",
+    availableBadge: "ለፕሮጀክቶች ዝግጁ ነኝ",
   },
   projects: {
     label: "ፕሮጀክቶች",

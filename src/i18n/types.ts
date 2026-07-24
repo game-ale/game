@@ -20,6 +20,7 @@ export interface Translations {
     twitter: string;
     linkedin: string;
     contactBtn: string;
+    availableBadge: string;
   };
   projects: {
     label: string;

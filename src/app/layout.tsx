@@ -1,6 +1,7 @@
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import CursorLikeEffect from "@/components/ui/CursorLikeEffect";
+import Starfield from "@/components/ui/Starfield";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import { constructMetadata, generatePersonJsonLd } from "@/lib/metadata";
 import type { Metadata } from "next";
@@ -25,6 +26,7 @@ export default function RootLayout({
       </head>
       <body>
         <LanguageProvider>
+          <Starfield />
           <CursorLikeEffect />
           {/* Skip to content link for accessibility */}
           <a href="#main-content" className="skip-to-content">

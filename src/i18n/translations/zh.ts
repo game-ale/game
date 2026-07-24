@@ -22,6 +22,7 @@ export const zh: Translations = {
     twitter: "Twitter",
     linkedin: "LinkedIn",
     contactBtn: "联系我",
+    availableBadge: "可接受项目",
   },
   projects: {
     label: "项目",

@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Globe, Menu, Moon, Sun, X } from "lucide-react";
 import Link from "next/link";
+import NextImage from "next/image";
 import { useEffect, useState, useRef } from "react";
 import styles from "./Navbar.module.css";
 import { useTranslation, LOCALES } from "@/i18n/LanguageContext";
@@ -31,7 +32,7 @@ export default function Navbar() {
     ];
 
     useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 50);
+        const onScroll = () => setScrolled(window.scrollY > 20);
         window.addEventListener("scroll", onScroll);
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
@@ -70,11 +71,16 @@ export default function Navbar() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             role="banner"
         >
-            <nav className={`${styles.nav} container`} role="navigation" aria-label="Main navigation">
+            <nav className={styles.nav} role="navigation" aria-label="Main navigation">
                 <Link href="/" className={styles.logo} aria-label="Gemechu Alemu - Home">
-                    <span className={styles.logoSymbol}>{"<"}</span>
-                    GA
-                    <span className={styles.logoSymbol}>{"/>"}</span>
+                    <NextImage 
+                        src="/images/profile/me.png"
+                        alt="Gemechu"
+                        width={32}
+                        height={32}
+                        className={styles.navAvatar}
+                    />
+                    <span className={styles.navName}>Gemechu</span>
                 </Link>
 
                 {/* Desktop */}
