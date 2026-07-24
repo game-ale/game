@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, FileText, Github, Linkedin } from "lucide-react";
-import { XIcon, LeetCodeIcon, CodeforcesIcon, ZindiIcon } from "@/components/ui/BrandIcons";
+import { ArrowRight, FileText, Linkedin, Mail } from "lucide-react";
+import { XIcon, LeetCodeIcon, CodeforcesIcon, ZindiIcon, TelegramIcon, WhatsAppIcon, PortfolioIcon } from "@/components/ui/BrandIcons";
 import NextImage from "next/image";
 import styles from "./Hero.module.css";
 import { useTranslation } from "@/i18n/LanguageContext";
@@ -38,14 +38,11 @@ export default function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
                 >
-                    <a href="https://x.com/alemu_geme88545" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className={styles.socialIcon}>
-                        <XIcon size={16} />
+                    <a href="https://game-ldev.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Portfolio" className={styles.socialIcon}>
+                        <PortfolioIcon size={16} />
                     </a>
-                    <a href="https://www.linkedin.com/in/gemechu-alemu-bedasa-9a5185338" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className={styles.socialIcon}>
-                        <Linkedin size={18} />
-                    </a>
-                    <a href="https://github.com/game-ale/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className={styles.socialIcon}>
-                        <Github size={18} />
+                    <a href="https://leetcode.com/u/game_ale/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" className={styles.socialIcon}>
+                        <LeetCodeIcon size={16} />
                     </a>
                     <a href="https://zindi.africa/users/game_ale" target="_blank" rel="noopener noreferrer" aria-label="Zindi" className={styles.socialIcon}>
                         <ZindiIcon size={16} />
@@ -53,8 +50,20 @@ export default function Hero() {
                     <a href="https://codeforces.com/profile/gemechualemu" target="_blank" rel="noopener noreferrer" aria-label="Codeforces" className={styles.socialIcon}>
                         <CodeforcesIcon size={16} />
                     </a>
-                    <a href="https://leetcode.com/u/game_ale/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" className={styles.socialIcon}>
-                        <LeetCodeIcon size={16} />
+                    <a href="mailto:alemugemechu44@gmail.com" aria-label="Email" className={styles.socialIcon}>
+                        <Mail size={16} />
+                    </a>
+                    <a href="https://x.com/alemu_geme88545" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className={styles.socialIcon}>
+                        <XIcon size={16} />
+                    </a>
+                    <a href="https://www.linkedin.com/in/gemechu-alemu-bedasa-9a5185338" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className={styles.socialIcon}>
+                        <Linkedin size={18} />
+                    </a>
+                    <a href="https://t.me/AletheiaNike" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className={styles.socialIcon}>
+                        <TelegramIcon size={16} />
+                    </a>
+                    <a href="https://wa.me/251917123456" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className={styles.socialIcon}>
+                        <WhatsAppIcon size={16} />
                     </a>
                 </motion.div>
 
