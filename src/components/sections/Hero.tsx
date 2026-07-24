@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, FileText, Github, Linkedin, Mail, Trophy, X } from "lucide-react";
+import { ArrowRight, Braces, Code2, FileText, Github, Linkedin, Trophy, X } from "lucide-react";
 import NextImage from "next/image";
 import styles from "./Hero.module.css";
 import { useTranslation } from "@/i18n/LanguageContext";
@@ -52,8 +52,8 @@ export default function Hero() {
                     <a href="https://codeforces.com/profile/gemechualemu" target="_blank" rel="noopener noreferrer" aria-label="Codeforces" className={styles.socialIcon}>
                         <Code2 size={18} />
                     </a>
-                    <a href="mailto:alemugemechu44@mail.com" aria-label="Email" className={styles.socialIcon}>
-                        <Mail size={18} />
+                    <a href="https://leetcode.com/u/game_ale/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" className={styles.socialIcon}>
+                        <Braces size={18} />
                     </a>
                 </motion.div>
 
