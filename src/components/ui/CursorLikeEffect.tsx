@@ -61,11 +61,39 @@ export default function CursorLikeEffect() {
             requestRef.current = requestAnimationFrame(animate);
         };
 
+        const onMouseDown = () => {
+            if (circleRef.current) circleRef.current.classList.add(styles.clicking);
+        };
+        const onMouseUp = () => {
+            if (circleRef.current) circleRef.current.classList.remove(styles.clicking);
+        };
+
+        const onMouseOver = (e: MouseEvent) => {
+            const target = e.target as HTMLElement;
+            if (
+                target.tagName?.toLowerCase() === 'a' ||
+                target.tagName?.toLowerCase() === 'button' ||
+                target.closest('a') ||
+                target.closest('button') ||
+                window.getComputedStyle(target).cursor === 'pointer'
+            ) {
+                if (circleRef.current) circleRef.current.classList.add(styles.hovering);
+            } else {
+                if (circleRef.current) circleRef.current.classList.remove(styles.hovering);
+            }
+        };
+
         window.addEventListener("mousemove", onMouseMove);
+        window.addEventListener("mousedown", onMouseDown);
+        window.addEventListener("mouseup", onMouseUp);
+        window.addEventListener("mouseover", onMouseOver);
         requestRef.current = requestAnimationFrame(animate);
 
         return () => {
             window.removeEventListener("mousemove", onMouseMove);
+            window.removeEventListener("mousedown", onMouseDown);
+            window.removeEventListener("mouseup", onMouseUp);
+            window.removeEventListener("mouseover", onMouseOver);
             if (requestRef.current) cancelAnimationFrame(requestRef.current);
         };
     }, [isMobile]);
