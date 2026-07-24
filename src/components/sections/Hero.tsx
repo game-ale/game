@@ -62,7 +62,7 @@ export default function Hero() {
                     <a href="https://t.me/AletheiaNike" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className={styles.socialIcon}>
                         <TelegramIcon size={16} />
                     </a>
-                    <a href="https://wa.me/251917123456" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className={styles.socialIcon}>
+                    <a href="https://wa.me/251949297359" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className={styles.socialIcon}>
                         <WhatsAppIcon size={16} />
                     </a>
                 </motion.div>
