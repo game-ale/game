@@ -58,34 +58,30 @@
     }
 }
 
-/* ─── Availability Badge ─── */
-.badge {
+/* ─── Social Badge Row ─── */
+.socialBadge {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 6px 16px;
+    gap: 16px;
+    padding: 10px 24px;
     border-radius: 9999px;
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.25);
-    color: #34d399;
-    font-size: 0.8rem;
-    font-weight: 600;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: var(--space-6);
-    letter-spacing: 0.02em;
+    backdrop-filter: blur(8px);
 }
 
-.badgeDot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #34d399;
-    box-shadow: 0 0 8px rgba(52, 211, 153, 0.6);
-    animation: blink 2s ease-in-out infinite;
+.socialIcon {
+    color: var(--text-tertiary);
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
+.socialIcon:hover {
+    color: var(--accent-blue);
+    transform: translateY(-2px);
 }
 
 /* ─── Heading ─── */

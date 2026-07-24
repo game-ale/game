@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, FileText } from "lucide-react";
+import { ArrowRight, FileText, Github, Linkedin, Mail, Trophy, X } from "lucide-react";
 import NextImage from "next/image";
 import styles from "./Hero.module.css";
 import { useTranslation } from "@/i18n/LanguageContext";
@@ -30,15 +30,28 @@ export default function Hero() {
                     />
                 </motion.div>
 
-                {/* Availability Badge */}
+                {/* Social Links Row */}
                 <motion.div
-                    className={styles.badge}
+                    className={styles.socialBadge}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
                 >
-                    <span className={styles.badgeDot} />
-                    {t.hero.availableBadge || "Available for projects"}
+                    <a href="https://x.com/alemu_geme88545" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className={styles.socialIcon}>
+                        <X size={18} />
+                    </a>
+                    <a href="https://www.linkedin.com/in/gemechu-alemu-bedasa/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className={styles.socialIcon}>
+                        <Linkedin size={18} />
+                    </a>
+                    <a href="https://github.com/game-ale/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className={styles.socialIcon}>
+                        <Github size={18} />
+                    </a>
+                    <a href="https://zindi.africa/users/game_ale" target="_blank" rel="noopener noreferrer" aria-label="Zindi" className={styles.socialIcon}>
+                        <Trophy size={18} />
+                    </a>
+                    <a href="mailto:alemugemechu44@mail.com" aria-label="Email" className={styles.socialIcon}>
+                        <Mail size={18} />
+                    </a>
                 </motion.div>
 
                 {/* Main Heading */}
