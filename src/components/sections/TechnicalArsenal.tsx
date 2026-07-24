@@ -19,7 +19,7 @@ type ArsenalItem = {
 };
 
 type ArsenalCategory = {
-    title: string;
+    translationKey: "languages" | "frameworks" | "mlAi" | "databases" | "devopsMlops";
     icon: typeof Braces;
     items: ArsenalItem[];
     featured?: boolean;
@@ -32,7 +32,7 @@ const getFaviconUrl = (href: string) => {
 
 const categories = [
     {
-        title: "Languages",
+        translationKey: "languages",
         icon: Braces,
         items: [
             { label: "Python", href: "https://www.python.org/" },
@@ -43,7 +43,7 @@ const categories = [
         ],
     },
     {
-        title: "Frameworks",
+        translationKey: "frameworks",
         icon: Globe,
         items: [
             { label: "Next.js", href: "https://nextjs.org/" },
@@ -54,7 +54,7 @@ const categories = [
         ],
     },
     {
-        title: "ML & AI",
+        translationKey: "mlAi",
         icon: BrainCircuit,
         items: [
             { label: "XGBoost", href: "https://xgboost.readthedocs.io/" },
@@ -66,7 +66,7 @@ const categories = [
         ],
     },
     {
-        title: "Databases",
+        translationKey: "databases",
         icon: Database,
         items: [
             { label: "PostgreSQL", href: "https://www.postgresql.org/" },
@@ -77,7 +77,7 @@ const categories = [
         featured: true,
     },
     {
-        title: "DevOps & MLOps",
+        translationKey: "devopsMlops",
         icon: Workflow,
         items: [
             { label: "Docker", href: "https://www.docker.com/" },
@@ -90,14 +90,18 @@ const categories = [
     },
     ] satisfies ArsenalCategory[];
 
+import { useTranslation } from "@/i18n/LanguageContext";
+
 export default function TechnicalArsenal() {
+    const { t } = useTranslation();
+
     return (
         <section className={`section ${styles.root}`} id="arsenal">
             <div className="container">
                 <SectionHeading
-                    label="Technical Arsenal"
-                    title="Systems, Stacks, and Tooling"
-                    subtitle="The engineering toolkit I use to design, train, deploy, and scale production-ready software."
+                    label={t.arsenal.label}
+                    title={t.arsenal.title}
+                    subtitle={t.arsenal.subtitle}
                 />
 
                 <div className={styles.stack}>
@@ -105,7 +109,7 @@ export default function TechnicalArsenal() {
                         const Icon = category.icon;
 
                         return (
-                            <AnimatedSection key={category.title} delay={index * 0.08}>
+                            <AnimatedSection key={category.translationKey} delay={index * 0.08}>
                                 <GlassCard
                                     padding="md"
                                     className={`${styles.card} ${category.featured ? styles.featured : ""}`}
@@ -114,7 +118,7 @@ export default function TechnicalArsenal() {
                                         <div className={styles.iconWrap}>
                                             <Icon size={16} />
                                         </div>
-                                        <h3 className={styles.title}>{category.title}</h3>
+                                        <h3 className={styles.title}>{t.arsenal[category.translationKey]}</h3>
                                     </div>
 
                                     <div className={styles.items}>

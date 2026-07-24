@@ -7,6 +7,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { CheckCircle, ExternalLink, Github, Linkedin, Loader2, Mail, MapPin, Phone, Send, X } from "lucide-react";
 import { useState } from "react";
 import styles from "./Contact.module.css";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 const contactInfo = [
     { icon: Mail, label: "A2SV Email", value: "gemechu.alemu@a2sv.org", href: "mailto:gemechu.alemu@a2sv.org" },
@@ -26,6 +27,7 @@ const socialLinks = [
 ];
 
 export default function Contact() {
+    const { t } = useTranslation();
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
     const [errorMsg, setErrorMsg] = useState("");
@@ -70,20 +72,18 @@ export default function Contact() {
         <section className="section" id="contact">
             <div className="container">
                 <SectionHeading
-                    label="Contact"
-                    title="Let's Build Something"
-                    subtitle="Open to opportunities in AI/ML Engineering and Systems Engineering"
+                    label={t.contact.label}
+                    title={t.contact.title}
+                    subtitle={t.contact.subtitle}
                 />
 
                 <div className={styles.grid}>
                     {/* Info side */}
                     <AnimatedSection direction="left">
                         <div className={styles.info}>
-                            <h3 className={styles.infoTitle}>Get In Touch</h3>
+                            <h3 className={styles.infoTitle}>{t.contact.getInTouch}</h3>
                             <p className={styles.infoText}>
-                                I&apos;m actively looking for AI/ML Engineer and Systems-Focused
-                                Software Engineer roles at top technology companies. Let&apos;s
-                                discuss how I can contribute to your team.
+                                {t.contact.getInTouchDesc}
                             </p>
 
                             <div className={styles.contactList}>
@@ -96,7 +96,7 @@ export default function Contact() {
                                             <span className={styles.contactLabel}>
                                                 {item.label === "A2SV Email" ? (
                                                     <><a href="https://a2sv.org/" target="_blank" rel="noopener noreferrer" className={styles.contactLabelLink}>A2SV</a> Email</>
-                                                ) : item.label}
+                                                ) : item.label === "Location" ? t.contact.location : item.label}
                                             </span>
                                             {item.href ? (
                                                 <a href={item.href} className={styles.contactValue}>
@@ -132,12 +132,12 @@ export default function Contact() {
                         <GlassCard padding="lg">
                             <form onSubmit={handleSubmit} className={styles.form}>
                                 <div className={styles.inputGroup}>
-                                    <label htmlFor="contact-name" className={styles.label}>Name</label>
+                                    <label htmlFor="contact-name" className={styles.label}>{t.contact.nameLabel}</label>
                                     <input
                                         id="contact-name"
                                         type="text"
                                         className={styles.input}
-                                        placeholder="Your name"
+                                        placeholder={t.contact.namePlaceholder}
                                         value={formData.name}
                                         onChange={(e) =>
                                             setFormData({ ...formData, name: e.target.value })
@@ -147,12 +147,12 @@ export default function Contact() {
                                     />
                                 </div>
                                 <div className={styles.inputGroup}>
-                                    <label htmlFor="contact-email" className={styles.label}>Email</label>
+                                    <label htmlFor="contact-email" className={styles.label}>{t.contact.emailLabel}</label>
                                     <input
                                         id="contact-email"
                                         type="email"
                                         className={styles.input}
-                                        placeholder="your@email.com"
+                                        placeholder={t.contact.emailPlaceholder}
                                         value={formData.email}
                                         onChange={(e) =>
                                             setFormData({ ...formData, email: e.target.value })
@@ -162,11 +162,11 @@ export default function Contact() {
                                     />
                                 </div>
                                 <div className={styles.inputGroup}>
-                                    <label htmlFor="contact-message" className={styles.label}>Message</label>
+                                    <label htmlFor="contact-message" className={styles.label}>{t.contact.messageLabel}</label>
                                     <textarea
                                         id="contact-message"
                                         className={styles.textarea}
-                                        placeholder="Your message..."
+                                        placeholder={t.contact.messagePlaceholder}
                                         rows={5}
                                         value={formData.message}
                                         onChange={(e) =>
@@ -183,23 +183,23 @@ export default function Contact() {
                                     className={status !== "idle" ? styles.submittedBtn : ""}
                                 >
                                     {status === "loading" ? (
-                                        <><Loader2 size={18} className={styles.spinner} /> Sending...</>
+                                        <><Loader2 size={18} className={styles.spinner} /> {t.contact.sending}</>
                                     ) : status === "success" ? (
-                                        <><CheckCircle size={18} /> Message Sent!</>
+                                        <><CheckCircle size={18} /> {t.contact.sent}</>
                                     ) : (
                                         <>
-                                            <Send size={18} /> Send Message
+                                            <Send size={18} /> {t.contact.sendButton}
                                         </>
                                     )}
                                 </Button>
                                 {status === "success" && (
                                     <p className={styles.successNote}>
-                                        Thanks! I&apos;ll get back to you as soon as possible.
+                                        {t.contact.successMsg}
                                     </p>
                                 )}
                                 {status === "error" && (
                                     <p className={styles.errorNote}>
-                                        {errorMsg}
+                                        {t.contact.errorMsg}
                                     </p>
                                 )}
                             </form>

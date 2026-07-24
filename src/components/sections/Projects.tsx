@@ -9,15 +9,18 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import NextImage from "next/image";
 import Link from "next/link";
 import styles from "./Projects.module.css";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function Projects() {
+    const { t } = useTranslation();
+
     return (
         <section className={`section section-alt ${styles.projects}`} id="projects">
             <div className="container">
                 <SectionHeading
-                    label="Projects"
-                    title="Production-Grade Systems"
-                    subtitle="End-to-end engineering from data ingestion to intelligent interfaces"
+                    label={t.projects.label}
+                    title={t.projects.title}
+                    subtitle={t.projects.subtitle}
                 />
 
                 <div className={styles.grid}>
@@ -89,7 +92,7 @@ export default function Projects() {
                                             target={project.directLink ? "_blank" : undefined}
                                             rel={project.directLink ? "noopener noreferrer" : undefined}
                                         >
-                                            {project.directLink ? (project.github ? "View on GitHub" : "View Live Demo") : "Read Case Study"}
+                                            {project.directLink ? (project.github ? t.projects.viewOnGithub : t.projects.viewLiveDemo) : t.projects.readCaseStudy}
                                             {project.directLink ? <ExternalLink size={14} /> : <ArrowRight size={14} />}
                                         </Link>
                                         <div className={styles.links}>

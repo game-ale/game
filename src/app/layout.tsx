@@ -1,6 +1,7 @@
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import CursorLikeEffect from "@/components/ui/CursorLikeEffect";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 import { constructMetadata, generatePersonJsonLd } from "@/lib/metadata";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -23,16 +24,18 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <CursorLikeEffect />
-        {/* Skip to content link for accessibility */}
-        <a href="#main-content" className="skip-to-content">
-          Skip to main content
-        </a>
-        <Navbar />
-        <main id="main-content" role="main">
-          {children}
-        </main>
-        <Footer />
+        <LanguageProvider>
+          <CursorLikeEffect />
+          {/* Skip to content link for accessibility */}
+          <a href="#main-content" className="skip-to-content">
+            Skip to main content
+          </a>
+          <Navbar />
+          <main id="main-content" role="main">
+            {children}
+          </main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

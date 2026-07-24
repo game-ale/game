@@ -1,29 +1,34 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Globe, Menu, Moon, Sun, X } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import styles from "./Navbar.module.css";
-
-const navLinks = [
-    { label: "Projects", href: "#projects" },
-    { label: "Technical Arsenal", href: "#arsenal" },
-    { label: "Engineering Journey", href: "#experience" },
-    { label: "Algorithms", href: "#algorithms" },
-    { label: "Contact", href: "#contact" },
-];
+import { useTranslation, LOCALES } from "@/i18n/LanguageContext";
+import { LocaleCode } from "@/i18n/types";
 
 export default function Navbar() {
+    const { t, locale, setLocale } = useTranslation();
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+    const langDropdownRef = useRef<HTMLDivElement>(null);
+
     const [theme, setTheme] = useState<"dark" | "light">(() => {
         if (typeof window === "undefined") {
             return "dark";
         }
-
         return (localStorage.getItem("theme") as "dark" | "light" | null) ?? "dark";
     });
+
+    const navLinks = [
+        { label: t.nav.projects, href: "#projects" },
+        { label: t.nav.arsenal, href: "#arsenal" },
+        { label: t.nav.experience, href: "#experience" },
+        { label: t.nav.algorithms, href: "#algorithms" },
+        { label: t.nav.contact, href: "#contact" },
+    ];
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 50);
@@ -35,11 +40,26 @@ export default function Navbar() {
         document.documentElement.setAttribute("data-theme", theme);
     }, [theme]);
 
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (langDropdownRef.current && !langDropdownRef.current.contains(event.target as Node)) {
+                setLangDropdownOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
     const toggleTheme = () => {
         const next = theme === "dark" ? "light" : "dark";
         setTheme(next);
         document.documentElement.setAttribute("data-theme", next);
         localStorage.setItem("theme", next);
+    };
+
+    const handleLanguageChange = (code: LocaleCode) => {
+        setLocale(code);
+        setLangDropdownOpen(false);
     };
 
     return (
@@ -69,6 +89,43 @@ export default function Navbar() {
                 </ul>
 
                 <div className={styles.navActions}>
+                    {/* Language Switcher */}
+                    <div className={styles.langSwitcher} ref={langDropdownRef}>
+                        <button 
+                            className={styles.langToggle}
+                            onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+                            aria-label="Change language"
+                            aria-expanded={langDropdownOpen}
+                        >
+                            <Globe size={16} />
+                            <span>{LOCALES.find(l => l.code === locale)?.label}</span>
+                            <span className={`${styles.langChevron} ${langDropdownOpen ? styles.langChevronOpen : ""}`}>▾</span>
+                        </button>
+                        
+                        <AnimatePresence>
+                            {langDropdownOpen && (
+                                <motion.div
+                                    className={styles.langDropdown}
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    {LOCALES.map((l) => (
+                                        <button
+                                            key={l.code}
+                                            className={`${styles.langOption} ${locale === l.code ? styles.langActive : ""}`}
+                                            onClick={() => handleLanguageChange(l.code)}
+                                        >
+                                            <span className={styles.langOptionLabel}>{l.label}</span>
+                                            <span className={styles.langOptionNative}>{l.nativeName}</span>
+                                        </button>
+                                    ))}
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+
                     {/* Theme toggle */}
                     <button
                         className={styles.themeToggle}
@@ -107,7 +164,7 @@ export default function Navbar() {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Get my Resume
+                        {t.nav.resume}
                     </a>
 
                     {/* Mobile Toggle */}

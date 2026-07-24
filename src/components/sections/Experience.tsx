@@ -6,6 +6,7 @@ import GlassCard from "@/components/ui/GlassCard";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Briefcase, GraduationCap } from "lucide-react";
 import styles from "./Experience.module.css";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 type EducationEntry = {
     kind: "education";
@@ -107,18 +108,20 @@ const experiences: ExperienceEntry[] = [
 ];
 
 export default function Experience() {
+    const { t } = useTranslation();
+
     return (
         <section className={`section ${styles.root}`} id="experience">
             <div className="container">
                 <SectionHeading
                     label=""
-                    title="Engineering Journey"
-                    subtitle="Production-grade training and real-world impact"
+                    title={t.experience.title}
+                    subtitle={t.experience.subtitle}
                 />
                 <div className={styles.columns}>
                     <div className={styles.sectionBlock}>
                         <div className={styles.sectionLabelWrap}>
-                            <h3 className={styles.sectionLabel}>Education</h3>
+                            <h3 className={styles.sectionLabel}>{t.experience.education}</h3>
                         </div>
                         <div className={styles.timeline}>
                             <div className={styles.line} />
@@ -139,7 +142,7 @@ export default function Experience() {
                                                 <p className={styles.company}>{item.company}</p>
                                                 <div className={styles.meta}>
                                                     <span className={styles.period}>{item.period}</span>
-                                                    <Badge label="Education" variant="default" size="sm" />
+                                                    <Badge label={t.experience.educationBadge} variant="default" size="sm" />
                                                 </div>
                                             </div>
                                         </div>
@@ -175,7 +178,7 @@ export default function Experience() {
 
                     <div className={styles.sectionBlock}>
                         <div className={styles.sectionLabelWrap}>
-                            <h3 className={styles.sectionLabel}>Experience</h3>
+                            <h3 className={styles.sectionLabel}>{t.experience.experienceLabel}</h3>
                         </div>
                         <div className={styles.timeline}>
                             <div className={styles.line} />

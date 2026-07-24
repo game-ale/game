@@ -5,6 +5,7 @@ import GlassCard from "@/components/ui/GlassCard";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Award, ExternalLink, Trophy, Zap } from "lucide-react";
 import styles from "./CompetitiveProgramming.module.css";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 const platforms = [
     {
@@ -53,13 +54,15 @@ const achievements = [
 
 
 export default function CompetitiveProgramming() {
+    const { t } = useTranslation();
+
     return (
         <section className="section" id="algorithms">
             <div className="container">
                 <SectionHeading
-                    label="Algorithmic Engineering"
-                    title="Competitive Programming"
-                    subtitle="Solving complex problems under extreme constraints"
+                    label={t.algorithms.label}
+                    title={t.algorithms.title}
+                    subtitle={t.algorithms.subtitle}
                 />
 
                 {/* Achievements grid */}
@@ -99,7 +102,7 @@ export default function CompetitiveProgramming() {
                                             rel="noopener noreferrer"
                                             className={styles.viewCertText}
                                         >
-                                            View Certificate
+                                            {t.algorithms.viewCertificate}
                                         </a>
                                     )}
                                 </div>
@@ -111,7 +114,7 @@ export default function CompetitiveProgramming() {
                 {/* Platform ratings */}
                 <AnimatedSection delay={0.3}>
                     <div className={styles.platforms}>
-                        <h3 className={styles.platformsTitle}>Active Platforms</h3>
+                        <h3 className={styles.platformsTitle}>{t.algorithms.activePlatforms}</h3>
                         <div className={styles.platformGrid}>
                             {platforms.map((p) => (
                                 <a

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, X } from "lucide-react";
 import NextImage from "next/image";
 import styles from "./Hero.module.css";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 const letterVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -13,8 +14,6 @@ const letterVariants = {
         transition: { delay: 0.5 + i * 0.03, duration: 0.5, ease: "easeOut" as const },
     }),
 };
-
-const greetingWords = ["Hi", ",", "I", "am", "Gemechu"];
 
 const greetingVariants = {
     hidden: { opacity: 0, y: 60, filter: "blur(10px)" },
@@ -31,7 +30,7 @@ const greetingVariants = {
 };
 
 export default function Hero() {
-    const headline = "I build digital experiences.";
+    const { t } = useTranslation();
 
     return (
         <section className={styles.hero} id="hero">
@@ -53,14 +52,14 @@ export default function Hero() {
                             className={styles.greeting}
                             initial="hidden"
                             animate="visible"
-                            aria-label="Hi , I am Gemechu"
+                            aria-label={t.hero.greeting.join(" ")}
                         >
-                            {greetingWords.map((word, i) => (
+                            {t.hero.greeting.map((word, i) => (
                                 <motion.span
-                                    key={word}
+                                    key={i}
                                     custom={i}
                                     variants={greetingVariants}
-                                    className={i === greetingWords.length - 1 ? styles.greetingAccent : styles.greetingWord}
+                                    className={i === t.hero.greeting.length - 1 || i === t.hero.greeting.length - 2 && t.hero.greeting[t.hero.greeting.length - 1] === "" ? styles.greetingAccent : styles.greetingWord}
                                 >
                                     {word}
                                 </motion.span>
@@ -75,7 +74,7 @@ export default function Hero() {
 
                         {/* Supporting headline with letter animation */}
                         <h2 className={styles.name}>
-                            {headline.split("").map((letter, i) => (
+                            {t.hero.headline.split("").map((letter, i) => (
                                 <motion.span
                                     key={i}
                                     custom={i}
@@ -96,19 +95,14 @@ export default function Hero() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1.2, duration: 0.6 }}
                         >
-                            I design and ship scalable AI systems that turn raw data into
-                            reliable intelligence RAG platforms, ML pipelines, inference
-                            APIs, and full-stack AI products built for production. Combining
-                            strong algorithmic thinking with backend engineering and MLOps, I
-                            focus on systems that are fast, explainable, and built to scale.
-                            Currently a CSE student at{" "}
+                            {t.hero.description}
                             <a
                                 href="https://www.astu.edu.et/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={styles.inlineLink}
                             >
-                                Adama Science and Technology University (ASTU)
+                                {t.hero.descriptionAstu}
                             </a>
                             , trained through{" "}
                             <a
@@ -117,7 +111,7 @@ export default function Hero() {
                                 rel="noopener noreferrer"
                                 className={styles.inlineLink}
                             >
-                                Africa to Silicon Valley (Backed by Google twice)
+                                {t.hero.descriptionA2sv}
                             </a>
                             , and competing in{" "}
                             <a
@@ -126,7 +120,7 @@ export default function Hero() {
                                 rel="noopener noreferrer"
                                 className={styles.inlineLink}
                             >
-                                EtCPC _ICPC
+                                {t.hero.descriptionEtcpc}
                             </a>{" "}
                             and{" "}
                             <a
@@ -135,10 +129,54 @@ export default function Hero() {
                                 rel="noopener noreferrer"
                                 className={styles.inlineLink}
                             >
-                                Zindi Africa
-                            </a>{" "}
-                            while building real-world AI solutions.
+                                {t.hero.descriptionZindi}
+                            </a>
+                            {t.hero.descriptionClosing}
                         </motion.p>
+
+                        <motion.div
+                            className={styles.actions}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 1.4, duration: 0.5 }}
+                        >
+                            <div className={styles.socialStrip}>
+                                <a
+                                    href="https://github.com/game-ale/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.socialBtn}
+                                    aria-label={t.hero.github}
+                                    title={t.hero.github}
+                                >
+                                    <Github size={20} />
+                                </a>
+                                <a
+                                    href="https://x.com/alemu_geme88545"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.socialBtn}
+                                    aria-label={t.hero.twitter}
+                                    title={t.hero.twitter}
+                                >
+                                    <X size={20} />
+                                </a>
+                                <a
+                                    href="https://www.linkedin.com/in/gemechu-alemu-bedasa-9a5185338/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.socialBtn}
+                                    aria-label={t.hero.linkedin}
+                                    title={t.hero.linkedin}
+                                >
+                                    <Linkedin size={20} />
+                                </a>
+                            </div>
+                            <a href="#contact" className={styles.primaryAction}>
+                                {t.hero.contactBtn}
+                                <span className={styles.arrow}>→</span>
+                            </a>
+                        </motion.div>
 
                     </motion.div>
 
@@ -169,17 +207,17 @@ export default function Hero() {
                             transition={{ delay: 1.4, duration: 0.6 }}
                         >
                             <div className={styles.socials}>
-                                <a href="https://github.com/game-ale/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className={styles.socialLink}>
+                                <a href="https://github.com/game-ale/" target="_blank" rel="noopener noreferrer" aria-label={t.hero.github} className={styles.socialLink}>
                                     <Github size={20} />
-                                    <span>GitHub</span>
+                                    <span>{t.hero.github}</span>
                                 </a>
-                                <a href="https://x.com/alemu_geme88545" target="_blank" rel="noopener noreferrer" aria-label="X" className={styles.socialLink}>
+                                <a href="https://x.com/alemu_geme88545" target="_blank" rel="noopener noreferrer" aria-label={t.hero.twitter} className={styles.socialLink}>
                                     <X size={20} />
-                                    <span>Twitter</span>
+                                    <span>{t.hero.twitter}</span>
                                 </a>
-                                <a href="https://www.linkedin.com/in/gemechu-alemu-bedasa-9a5185338/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className={styles.socialLink}>
+                                <a href="https://www.linkedin.com/in/gemechu-alemu-bedasa-9a5185338/" target="_blank" rel="noopener noreferrer" aria-label={t.hero.linkedin} className={styles.socialLink}>
                                     <Linkedin size={20} />
-                                    <span>LinkedIn</span>
+                                    <span>{t.hero.linkedin}</span>
                                 </a>
                             </div>
                             <a href="#contact" className={styles.contactLink}>

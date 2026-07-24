@@ -1,5 +1,8 @@
+"use client";
+
 import { ExternalLink, Github, Linkedin, Mail } from "lucide-react";
 import styles from "./Footer.module.css";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 const socialLinks = [
     { icon: Github, href: "https://github.com/game-ale/", label: "GitHub" },
@@ -17,6 +20,8 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+    const { t } = useTranslation();
+
     return (
         <footer className={styles.footer} role="contentinfo">
             <div className={`${styles.inner} container`}>
@@ -28,7 +33,7 @@ export default function Footer() {
                             <span className={styles.logoSymbol}>{"/>"}</span>
                         </span>
                         <p className={styles.tagline}>
-                            Building scalable intelligence platforms.
+                            {t.footer.tagline}
                         </p>
                     </div>
                     <div className={styles.socials}>
@@ -48,11 +53,10 @@ export default function Footer() {
                 </div>
                 <div className={styles.bottom}>
                     <p>
-                        &copy; {new Date().getFullYear()} Gemechu Alemu. Engineered with
-                        precision.
+                        &copy; {new Date().getFullYear()} {t.footer.copyright}
                     </p>
                     <p className={styles.tech}>
-                        Built with Next.js &middot; Framer Motion &middot; TypeScript
+                        {t.footer.techLine}
                     </p>
                 </div>
             </div>
