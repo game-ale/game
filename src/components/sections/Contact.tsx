@@ -4,7 +4,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import Button from "@/components/ui/Button";
 import GlassCard from "@/components/ui/GlassCard";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { CheckCircle, ExternalLink, Github, Linkedin, Loader2, Mail, MapPin, Phone, Send, X } from "lucide-react";
+import { CheckCircle, Linkedin, Loader2, Mail, MapPin, Phone, Send, X } from "lucide-react";
 import { useState } from "react";
 import styles from "./Contact.module.css";
 import { useTranslation } from "@/i18n/LanguageContext";
@@ -18,13 +18,7 @@ const contactInfo = [
     { icon: MapPin, label: "Location", value: "Ethiopia", href: undefined },
 ];
 
-const socialLinks = [
-    { icon: Github, label: "GitHub", href: "https://github.com/game-ale/" },
-    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/gemechu-alemu-bedasa-9a5185338/" },
-    { icon: ExternalLink, label: "LeetCode", href: "https://leetcode.com/u/game_ale/" },
-    { icon: ExternalLink, label: "Zindi Africa", href: "https://zindi.africa/users/game_ale" },
-    { icon: ExternalLink, label: "Codeforces", href: "https://codeforces.com/profile/gemechualemu" },
-];
+
 
 export default function Contact() {
     const { t } = useTranslation();
@@ -110,20 +104,7 @@ export default function Contact() {
                                 ))}
                             </div>
 
-                            <div className={styles.socials}>
-                                {socialLinks.map((link) => (
-                                    <a
-                                        key={link.label}
-                                        href={link.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={styles.socialLink}
-                                        aria-label={link.label}
-                                    >
-                                        <link.icon size={20} />
-                                    </a>
-                                ))}
-                            </div>
+
                         </div>
                     </AnimatedSection>
 

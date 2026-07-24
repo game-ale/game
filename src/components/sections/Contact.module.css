@@ -80,30 +80,7 @@ a.contactValue:hover {
     text-decoration: underline;
 }
 
-.socials {
-    display: flex;
-    gap: var(--space-3);
-    margin-top: var(--space-4);
-}
 
-.socialLink {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: var(--radius-lg);
-    color: var(--text-tertiary);
-    border: 1px solid var(--border-default);
-    transition: all var(--transition-fast);
-}
-
-.socialLink:hover {
-    color: var(--accent-blue);
-    border-color: var(--accent-blue);
-    box-shadow: 0 0 15px var(--accent-blue-glow);
-    transform: translateY(-3px);
-}
 
 /* Form */
 .form {

@@ -1,26 +1,40 @@
+/* ─── Footer ─── */
 .footer {
     border-top: 1px solid var(--border-default);
-    background: rgba(10, 15, 28, 0.5);
-    backdrop-filter: blur(10px);
+    background: rgba(10, 15, 28, 0.6);
+    backdrop-filter: blur(12px);
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+    opacity: 0.4;
 }
 
 .inner {
-    padding: var(--space-12) var(--space-6);
+    padding: var(--space-12) var(--space-6) var(--space-8);
 }
 
+/* ─── Top: 3-Column Layout ─── */
 .top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.4fr;
+    gap: var(--space-10);
     margin-bottom: var(--space-8);
-    padding-bottom: var(--space-8);
-    border-bottom: 1px solid var(--border-default);
 }
 
+/* ─── Brand ─── */
 .brand {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
+    gap: var(--space-3);
 }
 
 .logo {
@@ -37,22 +51,72 @@
 .tagline {
     font-size: var(--text-sm);
     color: var(--text-tertiary);
+    line-height: 1.6;
+    max-width: 280px;
+}
+
+/* ─── Navigation ─── */
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.navTitle {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: var(--font-mono);
+}
+
+.navList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.navLink {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    padding: 2px 0;
+    display: inline-block;
+}
+
+.navLink:hover {
+    color: var(--accent-blue);
+    transform: translateX(4px);
+}
+
+/* ─── Social Column ─── */
+.socialCol {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
 }
 
 .socials {
     display: flex;
-    gap: var(--space-4);
+    flex-wrap: wrap;
+    gap: var(--space-3);
 }
 
 .socialLink {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     border-radius: var(--radius-lg);
     color: var(--text-tertiary);
     border: 1px solid var(--border-default);
+    background: rgba(255, 255, 255, 0.02);
     transition: all var(--transition-fast);
 }
 
@@ -60,9 +124,18 @@
     color: var(--accent-blue);
     border-color: var(--accent-blue);
     box-shadow: 0 0 15px var(--accent-blue-glow);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    background: rgba(59, 130, 246, 0.08);
 }
 
+/* ─── Divider ─── */
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--border-default) 20%, var(--border-default) 80%, transparent 100%);
+    margin-bottom: var(--space-6);
+}
+
+/* ─── Bottom ─── */
 .bottom {
     display: flex;
     justify-content: space-between;
@@ -79,16 +152,44 @@
     font-size: var(--text-xs) !important;
 }
 
+/* ─── Responsive ─── */
 @media (max-width: 768px) {
     .top {
-        flex-direction: column;
-        gap: var(--space-6);
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
         text-align: center;
+    }
+
+    .tagline {
+        max-width: 100%;
+    }
+
+    .navList {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-3);
+    }
+
+    .navLink:hover {
+        transform: none;
+    }
+
+    .socials {
+        justify-content: center;
+    }
+
+    .socialCol {
+        align-items: center;
+    }
+
+    .nav {
+        align-items: center;
     }
 
     .bottom {
         flex-direction: column;
-        gap: var(--space-2);
+        gap: var(--space-3);
         text-align: center;
     }
 }
