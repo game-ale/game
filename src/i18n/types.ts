@@ -81,7 +81,7 @@ export interface Translations {
   };
 }
 
-export type LocaleCode = "en" | "zh" | "es" | "or" | "am";
+export type LocaleCode = "en" | "zh" | "es";
 
 export interface LocaleInfo {
   code: LocaleCode;
