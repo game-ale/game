@@ -38,7 +38,7 @@ export default function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
                 >
-                    <a href="https://game-ldev.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Portfolio" className={styles.socialIcon}>
+                    <a href="https://gemechualemu.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="Portfolio" className={styles.socialIcon}>
                         <PortfolioIcon size={16} />
                     </a>
                     <a href="https://leetcode.com/u/game_ale/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" className={styles.socialIcon}>
