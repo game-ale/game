@@ -2,47 +2,47 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 8px;
-    height: 8px;
-    margin: -4px 0 0 -4px; /* Center perfectly on cursor */
-    background-color: var(--accent-blue);
+    width: 5px;
+    height: 5px;
+    margin: -2.5px 0 0 -2.5px;
+    background-color: rgba(139, 92, 246, 0.9);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
     will-change: transform;
-    /* Hide default cursor only when the custom one is active */
+    box-shadow: 0 0 6px rgba(139, 92, 246, 0.4);
 }
 
 .cursorCircle {
     position: fixed;
     top: 0;
     left: 0;
-    width: 32px;
-    height: 32px;
-    margin: -16px 0 0 -16px; /* Center perfectly on cursor */
-    border: 2px solid rgba(59, 130, 246, 0.5); /* Semi-transparent accent-blue */
-    background-color: rgba(59, 130, 246, 0.05);
+    width: 28px;
+    height: 28px;
+    margin: -14px 0 0 -14px;
+    border: 1.5px solid rgba(139, 92, 246, 0.3);
+    background-color: transparent;
     border-radius: 50%;
     pointer-events: none;
     z-index: 9998;
     will-change: transform;
-    transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease, background-color 0.2s ease;
+    transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
-/* Make it glow and expand slightly on interactive elements */
+/* Expand and glow on interactive elements */
 .cursorCircle.hovering {
-    width: 48px;
-    height: 48px;
-    margin: -24px 0 0 -24px;
-    background-color: rgba(59, 130, 246, 0.15);
-    border-color: var(--accent-blue);
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    background-color: rgba(139, 92, 246, 0.08);
+    border-color: rgba(139, 92, 246, 0.5);
 }
 
-/* Shrink when clicking */
+/* Shrink on click */
 .cursorCircle.clicking {
-    width: 24px;
-    height: 24px;
-    margin: -12px 0 0 -12px;
-    background-color: rgba(59, 130, 246, 0.3);
-    border-color: var(--accent-blue);
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    background-color: rgba(139, 92, 246, 0.15);
+    border-color: rgba(139, 92, 246, 0.6);
 }
