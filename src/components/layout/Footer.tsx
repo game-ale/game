@@ -8,10 +8,10 @@ import { useTranslation } from "@/i18n/LanguageContext";
 import ProfileViewCount from "@/components/ui/ProfileViewCount";
 
 const socialLinks = [
+    { icon: Github, href: "https://github.com/game-ale/", label: "GitHub" },
     { icon: LeetCodeIcon, href: "https://leetcode.com/u/game_ale/", label: "LeetCode" },
     { icon: ZindiIcon, href: "https://zindi.africa/users/game_ale", label: "Zindi" },
     { icon: CodeforcesIcon, href: "https://codeforces.com/profile/gemechualemu", label: "Codeforces" },
-    { icon: Github, href: "https://github.com/game-ale/", label: "GitHub" },
     { icon: Mail, href: "mailto:alemugemechu44@gmail.com", label: "Email" },
     { icon: XIcon, href: "https://x.com/alemu_geme88545", label: "X (Twitter)" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/gemechu-alemu-bedasa", label: "LinkedIn" },

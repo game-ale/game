@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, FileText, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, FileText, Github, Linkedin, Mail } from "lucide-react";
 import { XIcon, LeetCodeIcon, CodeforcesIcon, ZindiIcon, TelegramIcon, WhatsAppIcon } from "@/components/ui/BrandIcons";
 import NextImage from "next/image";
 import styles from "./Hero.module.css";
@@ -40,6 +40,9 @@ export default function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
                 >
+                    <a href="https://github.com/game-ale/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className={styles.socialIcon}>
+                        <Github size={16} />
+                    </a>
                     <a href="https://leetcode.com/u/game_ale/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" className={styles.socialIcon}>
                         <LeetCodeIcon size={16} />
                     </a>
