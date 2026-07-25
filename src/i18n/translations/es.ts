@@ -73,7 +73,7 @@ export const es: Translations = {
     sending: "Enviando...",
     sent: "¡Mensaje Enviado!",
     successMsg: "¡Gracias! Me pondré en contacto contigo lo antes posible.",
-    errorMsg: "Error al enviar. Puedes enviarme un correo directamente a alemugemechu44@mail.com",
+    errorMsg: "Error al enviar. Puedes enviarme un correo directamente a alemugemechu44@gmail.com",
     location: "Etiopía",
   },
   footer: {

@@ -11,7 +11,7 @@ import { useTranslation } from "@/i18n/LanguageContext";
 
 const contactInfo = [
     { icon: Mail, label: "A2SV Email", value: "gemechu.alemu@a2sv.org", href: "mailto:gemechu.alemu@a2sv.org" },
-    { icon: Mail, label: "Email", value: "alemugemechu44@mail.com", href: "mailto:alemugemechu44@mail.com" },
+    { icon: Mail, label: "Email", value: "alemugemechu44@gmail.com", href: "mailto:alemugemechu44@gmail.com" },
     { icon: Phone, label: "Phone", value: "+251 949 297 359", href: "tel:+251949297359" },
     { icon: X, label: "X / Twitter", value: "@alemu_geme88545", href: "https://x.com/alemu_geme88545" },
     { icon: Linkedin, label: "LinkedIn", value: "gemechu-alemu-bedasa", href: "https://www.linkedin.com/in/gemechu-alemu-bedasa/" },
@@ -32,7 +32,7 @@ export default function Contact() {
         setErrorMsg("");
 
         try {
-            const res = await fetch("https://formsubmit.co/ajax/alemugemechu44@mail.com", {
+            const res = await fetch("https://formsubmit.co/ajax/alemugemechu44@gmail.com", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -57,7 +57,7 @@ export default function Contact() {
             }
         } catch {
             setStatus("error");
-            setErrorMsg("Failed to send. You can email me directly at alemugemechu44@mail.com");
+            setErrorMsg("Failed to send. You can email me directly at alemugemechu44@gmail.com");
             setTimeout(() => setStatus("idle"), 5000);
         }
     };

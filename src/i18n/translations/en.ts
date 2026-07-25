@@ -73,7 +73,7 @@ export const en: Translations = {
     sending: "Sending...",
     sent: "Message Sent!",
     successMsg: "Thanks! I'll get back to you as soon as possible.",
-    errorMsg: "Failed to send. You can email me directly at alemugemechu44@mail.com",
+    errorMsg: "Failed to send. You can email me directly at alemugemechu44@gmail.com",
     location: "Ethiopia",
   },
   footer: {

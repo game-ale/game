@@ -73,7 +73,7 @@ export const zh: Translations = {
     sending: "发送中...",
     sent: "信息已发送！",
     successMsg: "谢谢！我会尽快回复您。",
-    errorMsg: "发送失败。您可以直接发送邮件至 alemugemechu44@mail.com",
+    errorMsg: "发送失败。您可以直接发送邮件至 alemugemechu44@gmail.com",
     location: "埃塞俄比亚",
   },
   footer: {
